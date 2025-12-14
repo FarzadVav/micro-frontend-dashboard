@@ -1,135 +1,189 @@
-# Turborepo starter
+# Modular Next.js Dashboard - Turborepo Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+A production-ready modular dashboard application built with Next.js 16 and Turborepo. This monorepo demonstrates a static import-based module system where modules are conditionally included at build time.
 
-## Using this example
+## 🏗️ Architecture
 
-Run the following command:
+This monorepo implements a **static import module system** for Next.js:
 
-```sh
-npx create-turbo@latest
+- ✅ **Static Imports Only** - No module federation, no dynamic loading
+- ✅ **Tree-Shaking** - Disabled modules are completely removed from builds
+- ✅ **Single Application** - One Next.js dev server, one build output
+- ✅ **Central Configuration** - Enable/disable modules in one file
+- ✅ **Type-Safe** - Full TypeScript support
+
+## 📁 Structure
+
+```
+/
+├── apps/
+│   └── dashboard/          # Next.js dashboard application
+│
+├── packages/
+│   ├── modules/            # Module packages
+│   │   ├── home/
+│   │   ├── users/
+│   │   ├── products/
+│   │   ├── articles/
+│   │   └── comments/
+│   ├── ui/                 # Shared UI components
+│   └── config/             # Central configuration
+│
+├── turbo.json              # Turborepo configuration
+└── pnpm-workspace.yaml     # PNPM workspace config
 ```
 
-## What's inside?
+## 🚀 Quick Start
 
-This Turborepo includes the following packages/apps:
+### Prerequisites
 
-### Apps and Packages
+- Node.js >= 18
+- pnpm 9.0.0
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Installation
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+```bash
+pnpm install
+```
 
-### Utilities
+### Development
 
-This Turborepo has some additional tools already setup for you:
+```bash
+# Run all apps in development mode
+pnpm dev
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+# Or run dashboard specifically
+cd apps/dashboard
+pnpm dev
+```
+
+The dashboard will be available at `http://localhost:3002`
 
 ### Build
 
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+```bash
+pnpm build
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 📦 Module System
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+### How Modules Work
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+1. **Module Definition**: Each module exports a `ModuleDefinition` with:
+   - `id`: Unique module identifier
+   - `route`: URL route (e.g., "/products")
+   - `Page`: React component to render
+   - `Navigation`: Optional nav item config
 
-### Develop
+2. **Static Loading**: All modules are statically imported in `packages/config/module-loader.ts`
 
-To develop all apps and packages, run the following command:
+3. **Filtering**: Only enabled modules (from `packages/config/modules.ts`) are included
 
-```
-cd my-turborepo
+4. **Tree-Shaking**: Next.js automatically removes disabled modules from the build
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+### Enabling/Disabling Modules
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+Edit `packages/config/modules.ts`:
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+```typescript
+export const enabledModules = {
+  home: true,
+  users: false,      // Disabled - removed from build
+  products: true,
+  articles: true,
+  comments: false,   // Disabled - removed from build
+} as const;
 ```
 
-### Remote Caching
+### Module Structure
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+Each module follows this structure:
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+packages/modules/<name>/
+├── index.ts              # ModuleDefinition export
+├── routes.ts             # Route constants
+├── module.config.ts      # Module config
+├── pages/                # Page components
+└── components/           # Module components
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 🎯 Key Features
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+### Auto-Generated Navigation
 
+Navigation is automatically built from enabled modules:
+
+```typescript
+// Only modules with Navigation config appear in nav
+const navItems = activeModules
+  .filter((mod) => mod.Navigation)
+  .map((mod) => ({
+    route: mod.route,
+    label: mod.Navigation!.label,
+    icon: mod.Navigation!.icon,
+  }));
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+### Dynamic Route Resolution
 
-## Useful Links
+Routes are handled by:
+- `app/page.tsx` - Root route "/"
+- `app/[[...slug]]/page.tsx` - Catch-all for module routes
 
-Learn more about the power of Turborepo:
+The catch-all route:
+1. Extracts route from URL
+2. Finds matching module
+3. Renders module's Page component
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+## 📝 Adding a New Module
+
+1. Create module package in `packages/modules/<name>/`
+2. Export `ModuleDefinition` in `index.ts`
+3. Add import to `packages/config/module-loader.ts`
+4. Add to `enabledModules` in `packages/config/modules.ts`
+5. Add dependency in `apps/dashboard/package.json`
+6. Add to `transpilePackages` in `apps/dashboard/next.config.js`
+
+See `apps/dashboard/README.md` for detailed instructions.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Monorepo**: Turborepo
+- **Package Manager**: pnpm
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Custom components in `@repo/ui`
+
+## 📚 Documentation
+
+- [Dashboard README](./apps/dashboard/README.md) - Detailed dashboard documentation
+- [Module Development Guide](./apps/dashboard/README.md#adding-a-new-module) - How to create new modules
+
+## 🎨 Current Modules
+
+- ✅ **Home** - Dashboard landing page (enabled)
+- ❌ **Users** - User management (disabled)
+- ✅ **Products** - Product catalog (enabled)
+- ✅ **Articles** - Article management (enabled)
+- ❌ **Comments** - Comment moderation (disabled)
+
+## ⚡ Performance
+
+- **Zero Runtime Overhead**: Disabled modules are completely removed
+- **Fast Builds**: Tree-shaking eliminates unused code
+- **Single Bundle**: One optimized Next.js application
+- **Type Safety**: Full TypeScript coverage
+
+## 🔒 Limitations
+
+- Modules must be known at build time
+- No runtime dynamic module loading
+- Module routes must be statically defined
+
+This architecture is ideal for applications where modules are known at build time and maximum performance is required.
+
+## 📄 License
+
+Private - Internal use only
