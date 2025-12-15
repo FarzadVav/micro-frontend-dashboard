@@ -1,9 +1,17 @@
 import type { ModuleAccess } from "./types";
+import {
+  Home,
+  Users,
+  Box,
+  FileText,
+  MessageSquare,
+} from "lucide-react";
 
 /**
  * Central configuration for all modules
  * All module definitions (id, route, Navigation, access, enabled) are here
  * Modules only export their Page component
+ * Icons are stored as JSX elements to be serializable
  */
 export const moduleConfig = {
   home: {
@@ -12,7 +20,7 @@ export const moduleConfig = {
     enabled: true,
     Navigation: {
       label: "Home",
-      icon: "Home",
+      icon: <Home className="w-4 h-4" />,
     },
     access: {
       public: true,
@@ -24,7 +32,7 @@ export const moduleConfig = {
     enabled: false,
     Navigation: {
       label: "Users",
-      icon: "Users",
+      icon: <Users className="w-4 h-4" />,
     },
     access: {
       roles: ["admin"],
@@ -36,7 +44,7 @@ export const moduleConfig = {
     enabled: true,
     Navigation: {
       label: "Products",
-      icon: "Box",
+      icon: <Box className="w-4 h-4" />,
     },
     access: {
       roles: ["admin", "manager"],
@@ -48,7 +56,7 @@ export const moduleConfig = {
     enabled: true,
     Navigation: {
       label: "Articles",
-      icon: "FileText",
+      icon: <FileText className="w-4 h-4" />,
     },
     access: {
       roles: ["admin", "editor"],
@@ -60,7 +68,7 @@ export const moduleConfig = {
     enabled: false,
     Navigation: {
       label: "Comments",
-      icon: "MessageSquare",
+      icon: <MessageSquare className="w-4 h-4" />,
     },
     access: {
       roles: ["admin"],
@@ -92,3 +100,4 @@ export const enabledModules = Object.fromEntries(
 export function getModuleAccess(moduleId: ModuleId): ModuleAccess | undefined {
   return moduleConfig[moduleId]?.access;
 }
+

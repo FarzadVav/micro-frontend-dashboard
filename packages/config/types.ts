@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import { ComponentType, ReactNode } from "react";
 
 /**
  * Module access configuration
@@ -11,7 +11,8 @@ export interface ModuleAccess {
 /**
  * Module definition interface
  * Each module must export a ModuleDefinition object matching this structure
- * Note: access configuration is now in packages/config/modules.ts
+ * Note: access configuration is now in packages/config/modules.tsx
+ * Icons are stored as JSX (ReactNode) to be serializable between server and client
  */
 export interface ModuleDefinition {
   id: string;
@@ -19,7 +20,7 @@ export interface ModuleDefinition {
   Page: ComponentType;
   Navigation?: {
     label: string;
-    icon?: string;
+    icon?: ReactNode;
   };
 }
 

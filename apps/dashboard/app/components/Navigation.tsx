@@ -27,7 +27,7 @@ export function Navigation({ modules }: Props) {
     setIsLoggingOut(true);
     try {
       await fetch("/api/auth/logout", { method: "POST" });
-    } catch (e) {
+    } catch {
       // ignore
     } finally {
       window.location.href = "/login";
@@ -49,12 +49,12 @@ export function Navigation({ modules }: Props) {
                   <Link
                     key={item.route}
                     href={item.route}
-                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${isActive
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${isActive
                       ? "bg-primary text-primary-foreground"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
                   >
-                    {item.icon && <span className="mr-2">{item.icon}</span>}
+                    {item.icon}
                     {item.label}
                   </Link>
                 );
