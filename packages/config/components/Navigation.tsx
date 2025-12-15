@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@repo/ui/theme-context";
-import type { ModuleDefinition } from "@repo/config";
+import type { ModuleDefinition } from "../types";
 import { useState } from "react";
 
 interface Props {

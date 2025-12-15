@@ -1,6 +1,6 @@
 import { NavigationWrapper } from "./NavigationWrapper";
-import { getActiveModulesForRole } from "../../lib/module-loader";
-import { getAuthRole, hasAuthCookie } from "../../lib/auth";
+import { getActiveModulesForRole } from "../module-loader";
+import { getAuthRole, hasAuthCookie } from "../auth";
 
 export async function NavigationShell() {
   // Check if user is authenticated

@@ -5,12 +5,12 @@
  * Next.js will tree-shake disabled modules during build.
  * No runtime dynamic loading - everything is static.
  * 
- * Module definitions (id, route, Navigation, access) are in packages/config/modules.ts
+ * Module definitions (id, route, Navigation, access) are in packages/config/modules.tsx
  * Modules only export their Page component
  */
 
-import { moduleConfig, getModuleAccess } from "@repo/config";
-import type { ModuleDefinition, ModuleAccess } from "@repo/config";
+import { moduleConfig, getModuleAccess } from "./modules";
+import type { ModuleDefinition, ModuleAccess } from "./types";
 
 // Static imports - all module Page components are imported here
 // Tree-shaking will remove unused imports at build time

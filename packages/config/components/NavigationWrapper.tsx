@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Navigation } from "./Navigation";
-import type { ModuleDefinition } from "@repo/config";
+import type { ModuleDefinition } from "../types";
 
 interface Props {
   modules: ModuleDefinition[];
