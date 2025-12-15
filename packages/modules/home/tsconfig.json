@@ -4,10 +4,16 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@repo/*": ["../../*"]
+      "@repo/*": [
+        "../../*"
+      ]
     }
   },
-  "include": ["."],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
-

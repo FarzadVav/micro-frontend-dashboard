@@ -1,12 +1,6 @@
 {
   "name": "@modules/login",
-  "version": "0.0.0",
-  "private": true,
   "main": "./index.ts",
-  "types": "./index.ts",
-  "scripts": {
-    "check-types": "tsc --noEmit"
-  },
   "dependencies": {
     "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",
