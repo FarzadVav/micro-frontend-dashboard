@@ -1,8 +1,14 @@
+// This page runs on the client because it uses global theme state.
 "use client";
 
 import { Card } from "@repo/ui/card";
+import { useTheme } from "@repo/ui/theme-context";
+import { useCounter } from "@repo/ui/counter-context";
 
 export function HomePage() {
+  const { theme } = useTheme();
+  const { count } = useCounter();
+
   return (
     <div className="space-y-6">
       <div>
@@ -19,6 +25,12 @@ export function HomePage() {
             <p className="text-sm text-muted-foreground">
               View your dashboard statistics and metrics.
             </p>
+            <div className="mt-3 text-sm text-muted-foreground">
+              Current theme: <span className="font-semibold">{theme}</span>
+            </div>
+            <div className="mt-1 text-sm text-muted-foreground">
+              Shared counter: <span className="font-semibold">{count}</span>
+            </div>
           </div>
         </Card>
 

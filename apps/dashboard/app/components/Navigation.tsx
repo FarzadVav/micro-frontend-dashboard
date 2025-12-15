@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { activeModules } from "../../lib/module-loader";
+import { useTheme } from "@repo/ui/theme-context";
 
 export function Navigation() {
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
 
   // Get all modules with navigation config
   const navItems = activeModules
@@ -31,11 +33,10 @@ export function Navigation() {
                   <Link
                     key={item.route}
                     href={item.route}
-                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    }`}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      }`}
                   >
                     {item.icon && <span className="mr-2">{item.icon}</span>}
                     {item.label}
@@ -44,6 +45,14 @@ export function Navigation() {
               })}
             </div>
           </div>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="px-3 py-2 text-sm rounded-md border border-border hover:bg-muted transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? "🌞 Light" : "🌙 Dark"}
+          </button>
         </div>
       </div>
     </nav>
