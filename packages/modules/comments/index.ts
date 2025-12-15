@@ -1,16 +1,4 @@
-import { ModuleDefinition } from "@repo/config";
-import { CommentsPage } from "./pages/CommentsPage";
-
-export const ModuleDefinition: ModuleDefinition = {
-  id: "comments",
-  route: "/comments",
-  Page: CommentsPage,
-  Navigation: {
-    label: "Comments",
-    icon: "MessageSquare",
-  },
-  access: {
-    roles: ["admin"],
-  },
-};
+// Module only exports its Page component
+// All configuration (id, route, Navigation, access) is in packages/config/modules.ts
+export { CommentsPage } from "./pages/CommentsPage";
 

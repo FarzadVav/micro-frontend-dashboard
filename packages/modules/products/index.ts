@@ -1,16 +1,4 @@
-import { ModuleDefinition } from "@repo/config";
-import { ProductsPage } from "./pages/ProductsPage";
-
-export const ModuleDefinition: ModuleDefinition = {
-  id: "products",
-  route: "/products",
-  Page: ProductsPage,
-  Navigation: {
-    label: "Products",
-    icon: "Box",
-  },
-  access: {
-    roles: ["admin", "manager"],
-  },
-};
+// Module only exports its Page component
+// All configuration (id, route, Navigation, access) is in packages/config/modules.ts
+export { ProductsPage } from "./pages/ProductsPage";
 

@@ -1,16 +1,4 @@
-import { ModuleDefinition } from "@repo/config";
-import { HomePage } from "./pages/HomePage";
-
-export const ModuleDefinition: ModuleDefinition = {
-  id: "home",
-  route: "/",
-  Page: HomePage,
-  Navigation: {
-    label: "Home",
-    icon: "Home",
-  },
-  access: {
-    public: true,
-  },
-};
+// Module only exports its Page component
+// All configuration (id, route, Navigation, access) is in packages/config/modules.ts
+export { HomePage } from "./pages/HomePage";
 
