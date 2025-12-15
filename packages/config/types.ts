@@ -12,5 +12,9 @@ export interface ModuleDefinition {
     label: string;
     icon?: string;
   };
+  access?: {
+    public?: boolean;
+    roles?: string[];
+  };
 }
 

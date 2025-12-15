@@ -16,6 +16,7 @@ import * as UsersModule from "@modules/users";
 import * as ProductsModule from "@modules/products";
 import * as ArticlesModule from "@modules/articles";
 import * as CommentsModule from "@modules/comments";
+import * as LoginModule from "@modules/login";
 
 // Map all modules
 const allModules = {
@@ -24,6 +25,7 @@ const allModules = {
   products: ProductsModule,
   articles: ArticlesModule,
   comments: CommentsModule,
+  login: LoginModule,
 } as const;
 
 /**
@@ -33,6 +35,36 @@ const allModules = {
 export const activeModules: ModuleDefinition[] = Object.entries(allModules)
   .filter(([key]) => enabledModules[key as keyof typeof enabledModules])
   .map(([_, mod]) => mod.ModuleDefinition);
+
+/**
+ * Returns active modules filtered by role (and public access)
+ */
+export const getActiveModulesForRole = (
+  role?: string,
+): ModuleDefinition[] => {
+  return activeModules.filter((mod) => {
+    const access = mod.access;
+    if (access?.public) return true;
+    if (access?.roles?.length) {
+      return !!role && access.roles.includes(role);
+    }
+    return true; // default allow if no access specified
+  });
+};
+
+/**
+ * Check access to a specific module by route
+ */
+export const hasAccessToModule = (route: string, role?: string): boolean => {
+  const module = getModuleByRoute(route);
+  if (!module) return false;
+  const access = module.access;
+  if (access?.public) return true;
+  if (access?.roles?.length) {
+    return !!role && access.roles.includes(role);
+  }
+  return true;
+};
 
 /**
  * Get module by route

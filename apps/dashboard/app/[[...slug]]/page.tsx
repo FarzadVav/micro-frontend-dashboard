@@ -1,5 +1,6 @@
-import { getModuleByRoute } from "../../lib/module-loader";
-import { notFound } from "next/navigation";
+import { getModuleByRoute, hasAccessToModule } from "../../lib/module-loader";
+import { getAuthRole, hasAuthCookie } from "../../lib/auth";
+import { notFound, redirect } from "next/navigation";
 
 interface PageProps {
   params: Promise<{
@@ -36,10 +37,25 @@ export default async function ModulePage({ params }: PageProps) {
   // slug will be undefined for root route "/"
   const route = slug ? `/${slug.join("/")}` : "/";
 
+  // Authentication guard: redirect to login if no auth cookie and not on login
+  const isLoginRoute = route === "/login";
+  const hasAuth = await hasAuthCookie();
+  
+  if (!isLoginRoute && !hasAuth) {
+    redirect("/login");
+  }
+
+  const role = await getAuthRole();
+
   // Find module by route
   const module = getModuleByRoute(route);
 
   if (!module) {
+    notFound();
+  }
+
+  // Access control by role
+  if (!hasAccessToModule(route, role)) {
     notFound();
   }
 

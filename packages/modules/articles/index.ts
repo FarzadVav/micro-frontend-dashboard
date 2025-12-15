@@ -9,5 +9,8 @@ export const ModuleDefinition: ModuleDefinition = {
     label: "Articles",
     icon: "FileText",
   },
+  access: {
+    roles: ["admin", "editor"],
+  },
 };
 

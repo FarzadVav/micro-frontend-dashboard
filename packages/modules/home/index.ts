@@ -9,5 +9,8 @@ export const ModuleDefinition: ModuleDefinition = {
     label: "Home",
     icon: "Home",
   },
+  access: {
+    public: true,
+  },
 };
 

@@ -9,6 +9,7 @@ export const enabledModules = {
   products: true,
   articles: true,
   comments: false,
+  login: true,
 } as const;
 
 export type ModuleId = keyof typeof enabledModules;

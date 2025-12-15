@@ -2,21 +2,37 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { activeModules } from "../../lib/module-loader";
 import { useTheme } from "@repo/ui/theme-context";
+import type { ModuleDefinition } from "@repo/config";
+import { useState } from "react";
 
-export function Navigation() {
+interface Props {
+  modules: ModuleDefinition[];
+}
+
+export function Navigation({ modules }: Props) {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  // Get all modules with navigation config
-  const navItems = activeModules
+  const navItems = modules
     .filter((mod) => mod.Navigation)
     .map((mod) => ({
       route: mod.route,
       label: mod.Navigation!.label,
       icon: mod.Navigation!.icon,
     }));
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch (e) {
+      // ignore
+    } finally {
+      window.location.href = "/login";
+    }
+  };
 
   return (
     <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -45,14 +61,24 @@ export function Navigation() {
               })}
             </div>
           </div>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="px-3 py-2 text-sm rounded-md border border-border hover:bg-muted transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? "🌞 Light" : "🌙 Dark"}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="px-3 py-2 text-sm rounded-md border border-border hover:bg-muted transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? "🌞 Light" : "🌙 Dark"}
+            </button>
+            <button
+              type="button"
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="px-3 py-2 text-sm rounded-md border border-border hover:bg-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoggingOut ? "Logging out..." : "Logout"}
+            </button>
+          </div>
         </div>
       </div>
     </nav>

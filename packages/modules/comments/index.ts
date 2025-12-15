@@ -9,5 +9,8 @@ export const ModuleDefinition: ModuleDefinition = {
     label: "Comments",
     icon: "MessageSquare",
   },
+  access: {
+    roles: ["admin"],
+  },
 };
 
