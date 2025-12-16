@@ -3,6 +3,7 @@ import { Toast } from "@repo/ui/src/base-ui";
 import ToastList from "@repo/ui/src/components/toastList/toastList";
 
 import "./globals.css";
+import { ThemeScript } from "@repo/ui/src/components";
 
 export const metadata: Metadata = {
   title: {
@@ -18,14 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
       <head>
-        {/* Static title to avoid dev-time flicker to "localhost" */}
         <title>Modular Dashboard</title>
         <meta
           name="description"
           content="A modular Next.js dashboard built with Turborepo"
         />
+
+        <ThemeScript />
       </head>
       <body>
         <Toast.Provider>

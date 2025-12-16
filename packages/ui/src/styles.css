@@ -73,11 +73,11 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 [data-theme="dark"] {
-  --color-background: #f1f1f1;
-  --color-background-thin: #ffffff;
-  --color-background-thick: #dddddd;
-  --color-foreground: #565656;
-  --color-foreground-mute: #646464;
+  --color-background: #101010;
+  --color-background-thin: #202020;
+  --color-background-thick: #000000;
+  --color-foreground: #ffffff;
+  --color-foreground-mute: #dddddd;
   --color-primary: #0f9087;
   --color-primary-foreground: #e7f4f3;
   --color-secondary: #ffa33a;

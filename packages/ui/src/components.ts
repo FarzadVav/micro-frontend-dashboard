@@ -10,3 +10,4 @@ export * from "./components/rating/rating";
 export * from "./components/toastList/toastList";
 export * from "./components/tooptip/tooltip";
 export * from "./components/upload/upload";
+export * from "./components/theme/theme";
