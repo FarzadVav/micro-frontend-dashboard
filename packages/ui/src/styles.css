@@ -20,19 +20,19 @@
 @font-face {
   font-family: "ravi-medium";
   font-display: swap;
-  src: url("/fonts/ravi/ravi-medium.woff");
+  src: url("./fonts/ravi/ravi-medium.woff");
 }
 
 @font-face {
   font-family: "ravi-bold";
   font-display: swap;
-  src: url("/fonts/ravi/ravi-bold.woff");
+  src: url("./fonts/ravi/ravi-bold.woff");
 }
 
 @font-face {
   font-family: "ravi-black";
   font-display: swap;
-  src: url("/fonts/ravi/ravi-black.woff");
+  src: url("./fonts/ravi/ravi-black.woff");
 }
 
 @theme {
