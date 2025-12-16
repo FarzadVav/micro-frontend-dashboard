@@ -17,7 +17,7 @@ export function LoginPage() {
 
       if (res.ok) {
         // Force a full page reload to ensure server sees cookies
-        window.location.href = "/";
+        window.location.href = "/panel";
       } else {
         console.error("Login failed");
         setLoading(false);

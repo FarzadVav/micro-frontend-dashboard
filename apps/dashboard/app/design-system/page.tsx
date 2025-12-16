@@ -14,7 +14,7 @@ import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
 import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
 import TooltipArrowSvg from "@repo/ui/src/components/tooptip/tooltip";
-import ToastButton from "app/components/toastButton/toastButton";
+import ToastButton from "components/templates/toastButton/toastButton";
 
 const PAGES_WITH_STATE = [
   {

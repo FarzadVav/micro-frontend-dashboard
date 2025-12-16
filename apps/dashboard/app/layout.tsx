@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { NavigationShell } from "@repo/config";
 import { Toast } from "@repo/ui/src/base-ui";
 import ToastList from "@repo/ui/src/components/toastList/toastList";
 
@@ -19,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <head>
         {/* Static title to avoid dev-time flicker to "localhost" */}
         <title>Modular Dashboard</title>
@@ -30,9 +29,8 @@ export default function RootLayout({
       </head>
       <body>
         <Toast.Provider>
-          <div className="min-h-screen bg-background">
-            <NavigationShell />
-            <main className="container mx-auto px-4 py-8">{children}</main>
+          <div className="root">
+            {children}
           </div>
 
           <Toast.Portal>

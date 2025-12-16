@@ -28,7 +28,7 @@ export function Navigation({ modules }: Props) {
     } catch {
       // ignore
     } finally {
-      window.location.href = "/login";
+      window.location.href = "/panel/login";
     }
   };
 
@@ -46,7 +46,7 @@ export function Navigation({ modules }: Props) {
                 return (
                   <Link
                     key={item.route}
-                    href={item.route}
+                    href={`/panel/${item.route}`}
                     className={`px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${isActive
                       ? "bg-primary text-primary-foreground"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
