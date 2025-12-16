@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@repo/ui/card";
 
 export function CommentsPage() {
   return (
@@ -12,14 +11,14 @@ export function CommentsPage() {
         </p>
       </div>
 
-      <Card>
+      <div className="card">
         <div className="p-6">
           <p className="text-muted-foreground">
             This module is currently disabled in the configuration.
             Enable it in packages/config/modules.ts to see this page.
           </p>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }

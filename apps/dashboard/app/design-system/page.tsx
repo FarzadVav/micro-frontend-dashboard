@@ -9,7 +9,7 @@ import Button from "@repo/ui/src/components/button/button";
 import Badge from "@repo/ui/src/components/badge/badge";
 import Avatar from "@repo/ui/src/components/avatar/avatar";
 import { Rating } from "@repo/ui/src/components/rating/rating";
-import Input, { InputField } from "@repo/ui/src/components/input/input";
+import { Input } from "@repo/ui/src/components/input/input";
 import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
 import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
@@ -468,7 +468,7 @@ function Page() {
           className="mt-6 max-w-96"
           htmlFor="input-1"
         >
-          <InputField id="input-1" type="text" />
+          <Input.Field id="input-1" type="text" />
         </Input>
 
         <Input
@@ -479,7 +479,7 @@ function Page() {
           className="mt-6 max-w-96"
           htmlFor="input-2"
         >
-          <InputField id="input-2" type="text" />
+          <Input.Field id="input-2" type="text" />
         </Input>
 
         <div className="f-align mt-6">

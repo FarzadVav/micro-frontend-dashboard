@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "@repo/ui/theme-context";
 import type { ModuleDefinition } from "../types";
 import { useState } from "react";
 
@@ -12,7 +11,6 @@ interface Props {
 
 export function Navigation({ modules }: Props) {
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const navItems = modules
@@ -64,11 +62,11 @@ export function Navigation({ modules }: Props) {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={toggleTheme}
+              onClick={() => {}}
               className="px-3 py-2 text-sm rounded-md border border-border hover:bg-muted transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === "light" ? "🌞 Light" : "🌙 Dark"}
+              Light
             </button>
             <button
               type="button"

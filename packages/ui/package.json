@@ -1,9 +1,8 @@
 {
   "name": "@repo/ui",
   "exports": {
-    "./*": "./src/*.tsx",
-    "./components/*": "./src/components/*.tsx",
-    "./styles": "./src/styles/index.css",
+    "./styles": "./src/styles.css",
+    "./components": "./src/components.ts",
     "./base-ui": "./src/base-ui.ts"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import { cn } from "@repo/lib";
 import { forwardRef } from "react";
 
-type InputProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
+type InputWrapperProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
   variant?: "outline" | "soft",
   color?: "foreground" | "background" | "primary" | "secondary" | "error" | "warning" | "success" | "info",
   size?: "sm" | "lg",
@@ -11,17 +11,17 @@ type InputProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
   children?: React.ReactNode,
 };
 
-const Input = forwardRef<HTMLLabelElement, InputProps>(
-  ({ 
-    variant, 
-    color, 
-    size, 
-    isRounded, 
-    isSquare, 
+export const InputWrapper = forwardRef<HTMLLabelElement, InputWrapperProps>(
+  ({
+    variant,
+    color,
+    size,
+    isRounded,
+    isSquare,
     icon,
-    className, 
+    className,
     children,
-    ...props 
+    ...props
   }, ref) => {
     const variantClasses = {
       outline: "input-outline",
@@ -65,8 +65,5 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
-
-export { default as InputField } from "./field";
-export default Input;
+InputWrapper.displayName = "InputWrapper";
 

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UserIcon } from "lucide-react";
 
-import Input, { InputField } from "./input";
+import InputWrapper, { InputField } from "./inputWrapper";
 
 const meta = {
   title: "UI/Input",
-  component: Input,
+  component: InputWrapper,
   tags: ["autodocs"],
   parameters: {
     docs: {
@@ -50,7 +50,7 @@ const meta = {
   args: {
     children: <InputField type="text" placeholder="متن را وارد کنید" />,
   },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof InputWrapper>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

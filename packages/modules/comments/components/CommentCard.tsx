@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@repo/ui/card";
 
 export function CommentCard({
   author,
@@ -12,7 +11,7 @@ export function CommentCard({
   date: string;
 }) {
   return (
-    <Card>
+    <div className="card">
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <h4 className="font-semibold">{author}</h4>
@@ -20,7 +19,7 @@ export function CommentCard({
         </div>
         <p className="text-sm">{content}</p>
       </div>
-    </Card>
+    </div>
   );
 }
 

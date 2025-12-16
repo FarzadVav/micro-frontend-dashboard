@@ -6,7 +6,7 @@ type InputFieldProps =
   | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & { as: "textarea" })
   | (React.SelectHTMLAttributes<HTMLSelectElement> & { as: "select" });
 
-const InputField = forwardRef<
+export const InputField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement,
   InputFieldProps
 >(({ className, as, ...props }, ref) => {
@@ -40,6 +40,4 @@ const InputField = forwardRef<
 });
 
 InputField.displayName = "InputField";
-
-export default InputField;
 

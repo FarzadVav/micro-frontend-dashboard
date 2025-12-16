@@ -1,7 +1,5 @@
 "use client";
 
-import { Card } from "@repo/ui/card";
-
 export function ArticlesPage() {
   const articles = [
     { id: 1, title: "Getting Started with Next.js", status: "Published", views: 1234 },
@@ -20,7 +18,7 @@ export function ArticlesPage() {
 
       <div className="space-y-4">
         {articles.map((article) => (
-          <Card key={article.id}>
+          <div className="card" key={article.id}>
             <div className="p-6">
               <div className="flex items-start justify-between">
                 <div>
@@ -32,7 +30,7 @@ export function ArticlesPage() {
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </div>

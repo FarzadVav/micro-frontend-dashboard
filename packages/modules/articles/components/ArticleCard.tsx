@@ -1,7 +1,5 @@
 "use client";
 
-import { Card } from "@repo/ui/card";
-
 export function ArticleCard({
   title,
   status,
@@ -12,7 +10,7 @@ export function ArticleCard({
   views: number;
 }) {
   return (
-    <Card>
+    <div className="card">
       <div className="p-4">
         <h4 className="font-semibold">{title}</h4>
         <div className="flex gap-4 mt-2 text-sm text-muted-foreground">
@@ -20,7 +18,7 @@ export function ArticleCard({
           <span>{views} views</span>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
 

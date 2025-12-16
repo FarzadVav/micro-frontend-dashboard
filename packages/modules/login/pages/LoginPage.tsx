@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@repo/ui/card";
 import { useState } from "react";
 
 export function LoginPage() {
@@ -38,7 +37,7 @@ export function LoginPage() {
         </p>
       </div>
 
-      <Card>
+      <div className="card">
         <div className="p-6 space-y-4">
           <p className="text-sm text-muted-foreground">
             This demo sets cookies <code>auth_token</code> and <code>auth_role</code> for one
@@ -68,7 +67,7 @@ export function LoginPage() {
             </button>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }
