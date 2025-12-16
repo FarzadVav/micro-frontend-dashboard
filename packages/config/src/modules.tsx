@@ -13,6 +13,12 @@ import { ArticlesPage } from "@modules/articles";
 import { CommentsPage } from "@modules/comments";
 import { ComponentType } from "react";
 
+export enum ModuleRoles {
+  ADMIN = "admin",
+  MANAGER = "manager",
+  USER = "user",
+}
+
 type ModuleT = {
   id: string;
   label: string;
@@ -20,7 +26,7 @@ type ModuleT = {
   icon: ComponentType<{ className?: string }>;
   enabled: boolean;
   component: ComponentType;
-  roles: string[];
+  roles: ModuleRoles[];
 }
 
 export const moduleConfig: Record<string, ModuleT> = {
@@ -31,7 +37,7 @@ export const moduleConfig: Record<string, ModuleT> = {
     icon: ({ className }) => <Home className={className} />,
     enabled: true,
     component: HomePage,
-    roles: ["admin"],
+    roles: [ModuleRoles.ADMIN],
   },
   users: {
     id: "users",
@@ -40,7 +46,7 @@ export const moduleConfig: Record<string, ModuleT> = {
     icon: ({ className }) => <Users className={className} />,
     enabled: false,
     component: UsersPage,
-    roles: ["admin"],
+    roles: [ModuleRoles.ADMIN],
   },
   products: {
     id: "products",
@@ -49,7 +55,7 @@ export const moduleConfig: Record<string, ModuleT> = {
     icon: ({ className }) => <Box className={className} />,
     enabled: true,
     component: ProductsPage,
-    roles: ["admin", "manager"],
+    roles: [ModuleRoles.ADMIN, ModuleRoles.MANAGER],
   },
   articles: {
     id: "articles",
@@ -58,7 +64,7 @@ export const moduleConfig: Record<string, ModuleT> = {
     icon: ({ className }) => <FileText className={className} />,
     enabled: true,
     component: ArticlesPage,
-    roles: ["admin", "editor"],
+    roles: [ModuleRoles.ADMIN, ModuleRoles.MANAGER],
   },
   comments: {
     id: "comments",
@@ -67,30 +73,20 @@ export const moduleConfig: Record<string, ModuleT> = {
     icon: ({ className }) => <MessageSquare className={className} />,
     enabled: false,
     component: CommentsPage,
-    roles: ["admin"],
+    roles: [ModuleRoles.ADMIN],
   }
 } as const;
 
 export const modules = Object.values(moduleConfig);
 
+export const getAvailableModules = (role: ModuleRoles) => {
+  return modules.filter((mod) => mod.enabled && mod.roles.includes(role));
+};
+
 export const getModuleByRoute = (route: string) => {
   return modules.find((mod) => mod.route === route);
 };
 
-export const checkModuleAccess = (module: ModuleT, role: string) => {
+export const checkModuleAccess = (module: ModuleT, role: ModuleRoles) => {
   return module.enabled && module.roles.includes(role);
 };
-
-// export type ModuleId = keyof typeof moduleConfig;
-
-// export const enabledModules = Object.fromEntries(
-//   Object.entries(moduleConfig).map(([key, config]) => [key, config.enabled])
-// ) as Record<ModuleId, boolean>;
-
-// /**
-//  * Get access configuration for a module
-//  */
-// export function getModuleAccess(moduleId: ModuleId): ModuleAccess | undefined {
-//   return moduleConfig[moduleId]?.access;
-// }
-

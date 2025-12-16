@@ -1,5 +1,7 @@
+import { getAvailableModules, ModuleRoles } from "@repo/config/src"
 import Button from "@repo/ui/src/components/button/button"
 import { BellIcon, ChevronDownIcon, LayoutGridIcon, NotebookPenIcon, SearchIcon, SettingsIcon } from "lucide-react"
+import Link from "next/link"
 
 function Header() {
   return (
@@ -16,6 +18,16 @@ function Header() {
           <LayoutGridIcon className="size-full" />
         </span>
       </Button>
+
+      <div className="f-align gap-3 mr-auto">
+        {getAvailableModules(ModuleRoles.ADMIN).map((mod) => (
+          <Link key={mod.id} href={"/panel" + mod.route}>
+            <Button variant="float" color="background-thin" size="lg" isSquare isRounded>
+              <mod.icon className="btn-icon-size" />
+            </Button>
+          </Link>
+        ))}
+      </div>
 
       <div className="f-align gap-3 mr-auto">
         <Button variant="float" color="background-thin" size="lg" isSquare isRounded>

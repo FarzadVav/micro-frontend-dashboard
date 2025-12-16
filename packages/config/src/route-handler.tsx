@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 
-import { checkModuleAccess, getModuleByRoute } from "./modules";
+import { checkModuleAccess, getModuleByRoute, ModuleRoles } from "./modules";
 
 // import { getModuleByRoute, hasAccessToModule } from "./module-loader";
 
@@ -45,7 +45,7 @@ export async function handleModuleRoute({ params }: PageProps) {
     notFound();
   }
   
-  const role = "admin";
+  const role = ModuleRoles.ADMIN;
   const moduleIsAvailable = checkModuleAccess(module, role);
   if (!moduleIsAvailable) {
     notFound();
