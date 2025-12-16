@@ -1,6 +1,9 @@
 {
   "name": "@modules/articles",
-  "main": "./index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./routes": "./routes.ts"
+  },
   "dependencies": {
     "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",
@@ -11,4 +14,3 @@
     "typescript": "5.9.2"
   }
 }
-

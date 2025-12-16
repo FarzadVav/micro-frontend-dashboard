@@ -1,6 +1,9 @@
 {
   "name": "@modules/home",
-  "main": "./index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./routes": "./routes.ts"
+  },
   "dependencies": {
     "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",

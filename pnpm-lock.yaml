@@ -90,6 +90,24 @@ importers:
 
   packages/config:
     dependencies:
+      '@modules/articles':
+        specifier: workspace:*
+        version: link:../modules/articles
+      '@modules/comments':
+        specifier: workspace:*
+        version: link:../modules/comments
+      '@modules/home':
+        specifier: workspace:*
+        version: link:../modules/home
+      '@modules/login':
+        specifier: workspace:*
+        version: link:../modules/login
+      '@modules/products':
+        specifier: workspace:*
+        version: link:../modules/products
+      '@modules/users':
+        specifier: workspace:*
+        version: link:../modules/users
       '@repo/ui':
         specifier: workspace:*
         version: link:../ui

@@ -6,6 +6,12 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@modules/home": "workspace:*",
+    "@modules/users": "workspace:*",
+    "@modules/products": "workspace:*",
+    "@modules/articles": "workspace:*",
+    "@modules/comments": "workspace:*",
+    "@modules/login": "workspace:*",
     "@repo/ui": "workspace:*",
     "lucide-react": "^0.469.0",
     "next": "16.0.10",
