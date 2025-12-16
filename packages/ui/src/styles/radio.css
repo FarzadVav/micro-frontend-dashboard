@@ -1,0 +1,15 @@
+@utility radio-group {
+  @apply flex flex-col gap-1.5;
+}
+
+@utility radio-label {
+  @apply f-align gap-3;
+}
+
+@utility radio {
+  @apply size-6 f-center rounded-full data-unchecked:border data-unchecked:border-background-thick data-checked:bg-palette outline-solid outline-2 outline-transparent outline-offset-2 focus-visible:outline-palette;
+}
+
+@utility radio-indicator {
+  @apply size-2 rounded-full bg-brush;
+}

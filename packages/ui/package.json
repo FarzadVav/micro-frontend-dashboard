@@ -1,18 +1,27 @@
 {
   "name": "@repo/ui",
   "exports": {
-    "./*": "./src/*.tsx"
+    "./*": "./src/*.tsx",
+    "./components/*": "./src/components/*.tsx",
+    "./styles": "./src/styles/index.css",
+    "./base-ui": "./src/base-ui.ts"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@repo/lib": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
   },
   "dependencies": {
+    "lucide-react": "^0.469.0",
+    "@base-ui-components/react": "^1.0.0-rc.0",
+    "next": "16.0.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }

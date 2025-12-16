@@ -1,0 +1,11 @@
+@utility menu-popup {
+  @apply origin-[var(--transform-origin)] rounded-lg bg-background-thin py-1 shadow-lg shadow-foreground/10 transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0;
+}
+
+@utility menu-arrow {
+  @apply data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180;
+}
+
+@utility menu-item {
+  @apply flex cursor-default py-2 pe-8 ps-4 text-sm leading-4 outline-none select-none data-highlighted:relative data-highlighted:z-0 data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-md data-highlighted:before:bg-background;
+}

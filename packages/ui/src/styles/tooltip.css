@@ -1,0 +1,7 @@
+@utility tooltip-popup {
+  @apply flex flex-col px-2 py-1 rounded-md bg-palette text-brush text-sm origin-(--transform-origin) shadow-lg shadow-foreground/10 outline-1 outline-background-thick transition-[transform,scale,opacity] data-ending-style:opacity-0 data-ending-style:scale-90 data-instant:transition-none data-starting-style:opacity-0 data-starting-style:scale-90;
+}
+
+@utility tooltip-arrow {
+  @apply flex data-[side=bottom]:-top-2 data-[side=bottom]:rotate-0 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180;
+}

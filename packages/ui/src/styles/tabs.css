@@ -1,0 +1,19 @@
+@utility tabs-list {
+  @apply f-align gap-3;
+}
+
+@utility tabs-tab {
+  @apply btn btn-rounded data-active:shadow-foreground/10 shadow-xl shadow-transparent;
+  
+  &[data-active] .tabs-badge {
+    @apply shadow-palette/20;
+  }
+}
+
+@utility tabs-badge {
+  @apply badge badge-soft badge-sm badge-rounded shadow-md shadow-transparent;
+}
+
+@utility tabs-panel {
+  @apply p-3;
+}

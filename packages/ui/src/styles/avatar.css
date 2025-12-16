@@ -1,0 +1,55 @@
+@utility avatar {
+  --avatar-h: calc(var(--spacing) * 18.5);
+  --avatar-w: calc(var(--spacing) * 18.5);
+  --avatar-radius: var(--radius-lg);
+
+  width: var(--avatar-w);
+  height: var(--avatar-h);
+  border-radius: var(--avatar-radius);
+}
+
+@utility avatar-circle {
+  --avatar-radius: calc(infinity * 1px);
+}
+
+@utility avatar-xxl {
+  --avatar-w: calc(var(--spacing) * 31.25);
+  --avatar-h: calc(var(--spacing) * 31.25);
+  --avatar-radius: var(--radius-3xl);
+}
+
+@utility avatar-xl {
+  --avatar-w: calc(var(--spacing) * 24);
+  --avatar-h: calc(var(--spacing) * 24);
+  --avatar-radius: var(--radius-2xl);
+}
+
+@utility avatar-lg {
+  --avatar-w: calc(var(--spacing) * 21.5);
+  --avatar-h: calc(var(--spacing) * 21.5);
+  --avatar-radius: var(--radius-xl);
+}
+
+@utility avatar-sm {
+  --avatar-w: calc(var(--spacing) * 14);
+  --avatar-h: calc(var(--spacing) * 14);
+  --avatar-radius: var(--radius-md);
+}
+
+@utility avatar-xs {
+  --avatar-w: calc(var(--spacing) * 10);
+  --avatar-h: calc(var(--spacing) * 10);
+  --avatar-radius: var(--radius-sm);
+}
+
+@utility avatar-xxs {
+  --avatar-w: calc(var(--spacing) * 8);
+  --avatar-h: calc(var(--spacing) * 8);
+  --avatar-radius: var(--radius-xs);
+}
+
+@utility avatar-xxxs {
+  --avatar-w: calc(var(--spacing) * 6);
+  --avatar-h: calc(var(--spacing) * 6);
+  --avatar-radius: var(--radius-xs);
+}
