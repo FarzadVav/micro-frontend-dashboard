@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { Card } from "@repo/ui/card";
 import { useState } from "react";
 
 export function LoginPage() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (role: string) => {
