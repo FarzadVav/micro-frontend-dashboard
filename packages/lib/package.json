@@ -1,6 +1,9 @@
 {
   "name": "@repo/lib",
-  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./fetches": "./src/fetches.ts"
+  },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
