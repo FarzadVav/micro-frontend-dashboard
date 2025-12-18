@@ -1,5 +1,7 @@
+import { ComponentProps } from "react";
+
 import { cn } from "@repo/lib";
-import { Button as BaseButton, ButtonProps as BaseButtonProps } from "@base-ui-components/react";
+import { ColorsT } from "../../types";
 
 function Button({
   variant,
@@ -11,9 +13,9 @@ function Button({
   noEvent,
   className,
   ...props
-}: BaseButtonProps & {
+}: ComponentProps<"button"> & {
   variant?: "fill" | "outline" | "soft" | "ghost" | "float",
-  color?: "foreground" | "background" | "background-thin" | "background-thick" | "primary" | "secondary" | "error" | "warning" | "success" | "info",
+  color?: ColorsT,
   size?: "sm" | "lg",
   isSquare?: boolean,
   isRounded?: boolean,
@@ -49,7 +51,7 @@ function Button({
   const noEventClass = noEvent ? "pointer-events-none" : "";
 
   return (
-    <BaseButton
+    <button
       className={cn(
         "btn",
         variant && variantClasses[variant],

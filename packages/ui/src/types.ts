@@ -1,0 +1,1 @@
+export type ColorsT = "foreground" | "background" | "background-thin" | "background-thick" | "primary" | "secondary" | "error" | "warning" | "success" | "info";

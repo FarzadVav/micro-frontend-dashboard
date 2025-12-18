@@ -14,7 +14,7 @@ import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
 import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
 import TooltipArrowSvg from "@repo/ui/src/components/tooptip/tooltip";
-import ToastButton from "components/templates/toastButton/toastButton";
+import { toast } from "@repo/ui/src/components";
 
 const PAGES_WITH_STATE = [
   {
@@ -297,7 +297,26 @@ function Page() {
 
       <div className="p-3 mt-9">
         <p className="text-5xl font-ravi-bold">توست ها:</p>
-        <ToastButton />
+        <div className="f-align gap-3 mt-6">
+
+          <Button
+            variant="fill"
+            color="info"
+            onClick={() =>
+              toast({
+                title: "اطلاعات جدید در داشبورد",
+                color: "primary",
+                status: "info",
+                button: {
+                  onClick: () => {
+                    console.log("بستن");
+                  },
+                },
+              })}
+          >
+            نمایش توست
+          </Button>
+        </div>
       </div>
 
       <div className="p-3 mt-9">

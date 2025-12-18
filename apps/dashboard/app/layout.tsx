@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Toast } from "@repo/ui/src/base-ui";
-import ToastList from "@repo/ui/src/components/toastList/toastList";
 
 import "./globals.css";
-import { ThemeScript } from "@repo/ui/src/components";
+import { ThemeScript, Toaster } from "@repo/ui/src/components";
 
 export const metadata: Metadata = {
   title: {
@@ -30,17 +28,10 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body>
-        <Toast.Provider>
-          <div className="root">
-            {children}
-          </div>
-
-          <Toast.Portal>
-            <Toast.Viewport className={"fixed w-96 bottom-3 left-1/2 -translate-x-1/2 top-auto"}>
-              <ToastList />
-            </Toast.Viewport>
-          </Toast.Portal>
-        </Toast.Provider>
+        <div className="root">
+          {children}
+        </div>
+        <Toaster />
       </body>
     </html>
   );

@@ -18,7 +18,7 @@
 }
 
 @utility btn-sm {
-  --btn-h: calc(var(--spacing) * );
+  --btn-h: calc(var(--spacing) * 7);
   --btn-px: calc(var(--spacing) * 2);
   --btn-radius: var(--radius-md);
   --btn-text: var(--text-sm);
