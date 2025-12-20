@@ -1,11 +1,9 @@
 "use client";
 
-import { ComponentProps } from 'react'
-
-import Button from '../button/button'
 import { useThemeStore } from './themeStore';
+import { Button, ButtonPropsT } from '../button/button'
 
-export function ThemeButton({ ...props }: ComponentProps<typeof Button>) {
+export function ThemeButton({ ...props }: ButtonPropsT) {
   const { toggleTheme } = useThemeStore();
 
   return (

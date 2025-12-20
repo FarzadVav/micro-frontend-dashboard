@@ -12,3 +12,4 @@ export * from "./components/upload/upload";
 export * from "./components/theme/theme";
 export * from "./components/toast/toast";
 export * from "./components/choice/choice";
+export * from "./components/modal/modal";

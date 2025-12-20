@@ -1,0 +1,27 @@
+@utility modal-portal {
+  @apply fixed inset-0 z-50 f-center p-6 bg-black/50;
+
+  &:not(:has(.modal-header)) .modal-content {
+    @apply rounded-t-2xl;
+  }
+
+  &:not(:has(.modal-footer)) .modal-content {
+    @apply rounded-b-2xl;
+  }
+}
+
+@utility modal-body {
+  @apply w-fix h-fix f-center flex-col;
+}
+
+@utility modal-header {
+  @apply w-full h-20 f-align px-6 bg-background rounded-t-2xl border-b border-background-thick sticky top-0;
+}
+
+@utility modal-footer {
+  @apply w-full h-20 f-align justify-end px-6 bg-background rounded-b-2xl border-t border-background-thick sticky bottom-0;
+}
+
+@utility modal-content {
+  @apply w-full p-6 bg-background max-h-[calc(100%-10rem)] f-align justify-end gap-3 overflow-y-auto;
+}

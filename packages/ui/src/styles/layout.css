@@ -29,3 +29,7 @@
 @utility w-fix {
   @apply w-max max-w-full;
 }
+
+@utility h-fix {
+  @apply h-max max-h-full;
+}

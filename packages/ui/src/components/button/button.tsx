@@ -3,7 +3,17 @@ import { ComponentProps } from "react";
 import { cn } from "@repo/lib";
 import { ColorsT } from "../../types";
 
-function Button({
+export type ButtonPropsT = ComponentProps<"button"> & {
+  variant?: "fill" | "outline" | "soft" | "ghost" | "float",
+  color?: ColorsT,
+  size?: "sm" | "lg",
+  isSquare?: boolean,
+  isRounded?: boolean,
+  isFull?: boolean,
+  noEvent?: boolean
+}
+
+export function Button({
   variant,
   color,
   size,
@@ -13,15 +23,7 @@ function Button({
   noEvent,
   className,
   ...props
-}: ComponentProps<"button"> & {
-  variant?: "fill" | "outline" | "soft" | "ghost" | "float",
-  color?: ColorsT,
-  size?: "sm" | "lg",
-  isSquare?: boolean,
-  isRounded?: boolean,
-  isFull?: boolean,
-  noEvent?: boolean
-}) {
+}: ButtonPropsT) {
   const variantClasses = {
     fill: "btn-fill",
     outline: "btn-outline",
@@ -67,5 +69,3 @@ function Button({
     />
   );
 }
-
-export default Button;

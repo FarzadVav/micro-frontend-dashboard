@@ -13,6 +13,7 @@
 @import "./styles/toast.css";
 @import "./styles/pagination.css";
 @import "./styles/choice.css";
+@import "./styles/modal.css";
 
 @font-face {
   font-family: "ravi-medium";

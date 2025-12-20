@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { AlertDialog, Dialog, Menu, Tabs, Tooltip } from "@repo/ui/base-ui"
+import { Menu, Tabs, Tooltip } from "@repo/ui/base-ui"
 import { CheckIcon, ChevronDownIcon, ChevronRightIcon, ChevronLeftIcon, PlusIcon, StarIcon, UserIcon, XIcon, CircleIcon } from "lucide-react"
 
 import { PaginationWithState } from "@repo/ui/src/components/pagination/pagination";
-import Button from "@repo/ui/src/components/button/button";
 import Badge from "@repo/ui/src/components/badge/badge";
 import Avatar from "@repo/ui/src/components/avatar/avatar";
 import { Rating } from "@repo/ui/src/components/rating/rating";
@@ -14,7 +13,7 @@ import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
 import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
 import TooltipArrowSvg from "@repo/ui/src/components/tooptip/tooltip";
-import { Choice, toast } from "@repo/ui/src/components";
+import { Button, Choice, Modal, toast } from "@repo/ui/src/components";
 
 const PAGES_WITH_STATE = [
   {
@@ -489,60 +488,28 @@ function Page() {
       </div>
 
       <div className="p-3 mt-9">
-        <p className="text-5xl font-ravi-bold">آلرت دیالوگ:</p>
-        <AlertDialog.Root>
-          <AlertDialog.Trigger className="btn btn-fill palette-error mt-6">
-            حذف
-          </AlertDialog.Trigger>
-          <AlertDialog.Portal>
-            <AlertDialog.Backdrop className="dialog-backdrop" />
-            <AlertDialog.Popup className="dialog-popup">
-              <AlertDialog.Title className="dialog-title">
-                از حذف این آیتم مطمعن هستید؟
-              </AlertDialog.Title>
-              <AlertDialog.Description className="dialog-description">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-              </AlertDialog.Description>
-              <div className="dialog-footer">
-                <AlertDialog.Close className={"btn btn-soft"}>
-                  <XIcon className="btn-icon-size" />
-                  <span>
-                    بستن
-                  </span>
-                </AlertDialog.Close>
-                <AlertDialog.Close className="btn btn-fill palette-error">
-                  <span>
-                    حذف
-                  </span>
-                  <CheckIcon className="btn-icon-size" />
-                </AlertDialog.Close>
-              </div>
-            </AlertDialog.Popup>
-          </AlertDialog.Portal>
-        </AlertDialog.Root>
-      </div>
+        <p className="text-5xl font-ravi-bold">مدال:</p>
+        <Modal>
+          <Modal.Toggle className="mt-6" variant="fill">نمایش مدال</Modal.Toggle>
 
-      <div className="p-3 mt-9">
-        <p className="text-5xl font-ravi-bold">دیالوگ:</p>
-        <Dialog.Root>
-          <Dialog.Trigger className="btn btn-fill mt-6">
-            مشاهده اعلان ها
-          </Dialog.Trigger>
-          <Dialog.Portal>
-            <Dialog.Backdrop className="dialog-backdrop" />
-            <Dialog.Popup className="dialog-popup">
-              <Dialog.Title className="dialog-title">23 اعلان جدید</Dialog.Title>
-              <Dialog.Description className="dialog-description">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              </Dialog.Description>
-              <div className="dialog-footer">
-                <Dialog.Close className="btn btn-soft">
-                  باشه
-                </Dialog.Close>
-              </div>
-            </Dialog.Popup>
-          </Dialog.Portal>
-        </Dialog.Root>
+          <Modal.Portal className="modal-portal">
+            <Modal.Body className="modal-body">
+              <Modal.Header className="modal-header font-bold justify-center">
+                به مدال خوش آمدید
+              </Modal.Header>
+              <Modal.Content className="modal-content max-w-xl">
+                <p>
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+              </Modal.Content>
+              <Modal.Footer className="modal-footer">
+                <Modal.Toggle variant="soft" color="error">
+                  بستن
+                </Modal.Toggle>
+              </Modal.Footer>
+            </Modal.Body>
+          </Modal.Portal>
+        </Modal>
       </div>
 
       <div className="p-3 mt-9">

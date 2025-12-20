@@ -4,7 +4,7 @@ import { toast as sonnerToast, Toaster } from 'sonner';
 import { XCircleIcon, CheckCircleIcon, InfoIcon, XIcon, AlertCircleIcon } from 'lucide-react';
 
 import { cn } from '@repo/lib';
-import Button from '../button/button';
+import { Button } from '../button/button';
 import { ColorsT } from '../../types';
 
 type ToastProps = {
