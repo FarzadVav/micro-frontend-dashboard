@@ -1,0 +1,477 @@
+/* Element should be `absolute` or `fixed` */
+
+@utility top-center {
+  @apply top-1/2 -translate-y-1/2;
+}
+
+@utility top-boundary {
+  @apply top-0 -translate-y-1/2;
+}
+
+@utility top-out {
+  @apply -translate-y-full;
+
+  top: var(--out-position-offset, 0);
+}
+
+@utility right-center {
+  @apply right-1/2 translate-x-1/2;
+}
+
+@utility right-boundary {
+  @apply right-0 translate-x-1/2;
+}
+
+@utility right-out {
+  @apply translate-x-full;
+
+  right: var(--out-position-offset, 0);
+}
+
+@utility bottom-center {
+  @apply bottom-1/2 translate-y-1/2;
+}
+
+@utility bottom-boundary {
+  @apply bottom-0 translate-y-1/2;
+}
+
+@utility bottom-out {
+  @apply translate-y-full;
+
+  bottom: var(--out-position-offset, 0);
+}
+
+@utility left-center {
+  @apply left-1/2 -translate-x-1/2;
+}
+
+@utility left-boundary {
+  @apply left-0 -translate-x-1/2;
+}
+
+@utility left-out {
+  @apply -translate-x-full;
+
+  left: var(--out-position-offset, 0);
+}
+
+@utility inset-center {
+  @apply top-center left-center;
+}
+
+/* Compoound positions */
+
+/* Top + Right combinations */
+@utility top-0-right-0 {
+  @apply top-0 right-0;
+}
+
+@utility top-0-right-center {
+  @apply top-0 right-center;
+}
+
+@utility top-0-right-boundary {
+  @apply top-0 right-boundary;
+}
+
+@utility top-0-right-out {
+  @apply top-0 right-out;
+}
+
+@utility right-0-top-0 {
+  @apply right-0 top-0;
+}
+
+@utility right-0-top-center {
+  @apply right-0 top-center;
+}
+
+@utility right-0-top-boundary {
+  @apply right-0 top-boundary;
+}
+
+@utility right-0-top-out {
+  @apply right-0 top-out;
+}
+
+@utility top-center-right-center {
+  @apply top-center right-center;
+}
+
+@utility top-center-right-boundary {
+  @apply top-center right-boundary;
+}
+
+@utility top-center-right-out {
+  @apply top-center right-out;
+}
+
+@utility top-boundary-right-center {
+  @apply top-boundary right-center;
+}
+
+@utility top-boundary-right-boundary {
+  @apply top-boundary right-boundary;
+}
+
+@utility top-boundary-right-out {
+  @apply top-boundary right-out;
+}
+
+@utility top-out-right-center {
+  @apply top-out right-center;
+}
+
+@utility top-out-right-boundary {
+  @apply top-out right-boundary;
+}
+
+@utility top-out-right-out {
+  @apply top-out right-out;
+}
+
+/* Top + Bottom combinations */
+@utility top-0-bottom-0 {
+  @apply top-0 bottom-0;
+}
+
+@utility top-0-bottom-center {
+  @apply top-0 bottom-center;
+}
+
+@utility top-0-bottom-boundary {
+  @apply top-0 bottom-boundary;
+}
+
+@utility top-0-bottom-out {
+  @apply top-0 bottom-out;
+}
+
+@utility bottom-0-top-0 {
+  @apply bottom-0 top-0;
+}
+
+@utility bottom-0-top-center {
+  @apply bottom-0 top-center;
+}
+
+@utility bottom-0-top-boundary {
+  @apply bottom-0 top-boundary;
+}
+
+@utility bottom-0-top-out {
+  @apply bottom-0 top-out;
+}
+
+@utility top-center-bottom-center {
+  @apply top-center bottom-center;
+}
+
+@utility top-center-bottom-boundary {
+  @apply top-center bottom-boundary;
+}
+
+@utility top-center-bottom-out {
+  @apply top-center bottom-out;
+}
+
+@utility top-boundary-bottom-center {
+  @apply top-boundary bottom-center;
+}
+
+@utility top-boundary-bottom-boundary {
+  @apply top-boundary bottom-boundary;
+}
+
+@utility top-boundary-bottom-out {
+  @apply top-boundary bottom-out;
+}
+
+@utility top-out-bottom-center {
+  @apply top-out bottom-center;
+}
+
+@utility top-out-bottom-boundary {
+  @apply top-out bottom-boundary;
+}
+
+@utility top-out-bottom-out {
+  @apply top-out bottom-out;
+}
+
+/* Top + Left combinations */
+@utility top-0-left-0 {
+  @apply top-0 left-0;
+}
+
+@utility top-0-left-center {
+  @apply top-0 left-center;
+}
+
+@utility top-0-left-boundary {
+  @apply top-0 left-boundary;
+}
+
+@utility top-0-left-out {
+  @apply top-0 left-out;
+}
+
+@utility left-0-top-0 {
+  @apply left-0 top-0;
+}
+
+@utility left-0-top-center {
+  @apply left-0 top-center;
+}
+
+@utility left-0-top-boundary {
+  @apply left-0 top-boundary;
+}
+
+@utility left-0-top-out {
+  @apply left-0 top-out;
+}
+
+@utility top-center-left-center {
+  @apply top-center left-center;
+}
+
+@utility top-center-left-boundary {
+  @apply top-center left-boundary;
+}
+
+@utility top-center-left-out {
+  @apply top-center left-out;
+}
+
+@utility top-boundary-left-center {
+  @apply top-boundary left-center;
+}
+
+@utility top-boundary-left-boundary {
+  @apply top-boundary left-boundary;
+}
+
+@utility top-boundary-left-out {
+  @apply top-boundary left-out;
+}
+
+@utility top-out-left-center {
+  @apply top-out left-center;
+}
+
+@utility top-out-left-boundary {
+  @apply top-out left-boundary;
+}
+
+@utility top-out-left-out {
+  @apply top-out left-out;
+}
+
+/* Right + Bottom combinations */
+@utility right-0-bottom-0 {
+  @apply right-0 bottom-0;
+}
+
+@utility right-0-bottom-center {
+  @apply right-0 bottom-center;
+}
+
+@utility right-0-bottom-boundary {
+  @apply right-0 bottom-boundary;
+}
+
+@utility right-0-bottom-out {
+  @apply right-0 bottom-out;
+}
+
+@utility bottom-0-right-0 {
+  @apply bottom-0 right-0;
+}
+
+@utility bottom-0-right-center {
+  @apply bottom-0 right-center;
+}
+
+@utility bottom-0-right-boundary {
+  @apply bottom-0 right-boundary;
+}
+
+@utility bottom-0-right-out {
+  @apply bottom-0 right-out;
+}
+
+@utility right-center-bottom-center {
+  @apply right-center bottom-center;
+}
+
+@utility right-center-bottom-boundary {
+  @apply right-center bottom-boundary;
+}
+
+@utility right-center-bottom-out {
+  @apply right-center bottom-out;
+}
+
+@utility right-boundary-bottom-center {
+  @apply right-boundary bottom-center;
+}
+
+@utility right-boundary-bottom-boundary {
+  @apply right-boundary bottom-boundary;
+}
+
+@utility right-boundary-bottom-out {
+  @apply right-boundary bottom-out;
+}
+
+@utility right-out-bottom-center {
+  @apply right-out bottom-center;
+}
+
+@utility right-out-bottom-boundary {
+  @apply right-out bottom-boundary;
+}
+
+@utility right-out-bottom-out {
+  @apply right-out bottom-out;
+}
+
+/* Right + Left combinations */
+@utility right-0-left-0 {
+  @apply right-0 left-0;
+}
+
+@utility right-0-left-center {
+  @apply right-0 left-center;
+}
+
+@utility right-0-left-boundary {
+  @apply right-0 left-boundary;
+}
+
+@utility right-0-left-out {
+  @apply right-0 left-out;
+}
+
+@utility left-0-right-0 {
+  @apply left-0 right-0;
+}
+
+@utility left-0-right-center {
+  @apply left-0 right-center;
+}
+
+@utility left-0-right-boundary {
+  @apply left-0 right-boundary;
+}
+
+@utility left-0-right-out {
+  @apply left-0 right-out;
+}
+
+@utility right-center-left-center {
+  @apply right-center left-center;
+}
+
+@utility right-center-left-boundary {
+  @apply right-center left-boundary;
+}
+
+@utility right-center-left-out {
+  @apply right-center left-out;
+}
+
+@utility right-boundary-left-center {
+  @apply right-boundary left-center;
+}
+
+@utility right-boundary-left-boundary {
+  @apply right-boundary left-boundary;
+}
+
+@utility right-boundary-left-out {
+  @apply right-boundary left-out;
+}
+
+@utility right-out-left-center {
+  @apply right-out left-center;
+}
+
+@utility right-out-left-boundary {
+  @apply right-out left-boundary;
+}
+
+@utility right-out-left-out {
+  @apply right-out left-out;
+}
+
+/* Bottom + Left combinations */
+@utility bottom-0-left-0 {
+  @apply bottom-0 left-0;
+}
+
+@utility bottom-0-left-center {
+  @apply bottom-0 left-center;
+}
+
+@utility bottom-0-left-boundary {
+  @apply bottom-0 left-boundary;
+}
+
+@utility bottom-0-left-out {
+  @apply bottom-0 left-out;
+}
+
+@utility left-0-bottom-0 {
+  @apply left-0 bottom-0;
+}
+
+@utility left-0-bottom-center {
+  @apply left-0 bottom-center;
+}
+
+@utility left-0-bottom-boundary {
+  @apply left-0 bottom-boundary;
+}
+
+@utility left-0-bottom-out {
+  @apply left-0 bottom-out;
+}
+
+@utility bottom-center-left-center {
+  @apply bottom-center left-center;
+}
+
+@utility bottom-center-left-boundary {
+  @apply bottom-center left-boundary;
+}
+
+@utility bottom-center-left-out {
+  @apply bottom-center left-out;
+}
+
+@utility bottom-boundary-left-center {
+  @apply bottom-boundary left-center;
+}
+
+@utility bottom-boundary-left-boundary {
+  @apply bottom-boundary left-boundary;
+}
+
+@utility bottom-boundary-left-out {
+  @apply bottom-boundary left-out;
+}
+
+@utility bottom-out-left-center {
+  @apply bottom-out left-center;
+}
+
+@utility bottom-out-left-boundary {
+  @apply bottom-out left-boundary;
+}
+
+@utility bottom-out-left-out {
+  @apply bottom-out left-out;
+}

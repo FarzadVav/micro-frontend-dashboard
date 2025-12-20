@@ -13,7 +13,7 @@ import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
 import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
 import TooltipArrowSvg from "@repo/ui/src/components/tooptip/tooltip";
-import { Button, Choice, Modal, toast } from "@repo/ui/src/components";
+import { Button, Choice, Modal, Popover, toast } from "@repo/ui/src/components";
 
 const PAGES_WITH_STATE = [
   {
@@ -563,42 +563,49 @@ function Page() {
       </div>
 
       <div className="p-3 mt-9">
-        <p className="text-5xl font-ravi-bold">آپلودر:</p>
+        <p className="text-5xl font-ravi-bold">پاپ اور:</p>
 
-        <Menu.Root>
-          <Menu.Trigger className="btn btn-fill mt-6">
-            دسته بندی <ChevronDownIcon className="btn-icon-size" />
-          </Menu.Trigger>
-          <Menu.Portal>
-            <Menu.Positioner sideOffset={MENU_POSITIONER_SIDE_OFFSET}>
-              <Menu.Popup className="menu-popup">
-                <Menu.Arrow className="menu-arrow">
-                  <MenuArrowSvg />
-                </Menu.Arrow>
-                <Menu.Item className="menu-item">
-                  Add to Library
-                </Menu.Item>
-                <Menu.Item className="menu-item">
-                  Add to Playlist
-                </Menu.Item>
-                <Menu.Separator className="mx-4 my-1.5 h-px bg-background-thick" />
-                <Menu.Item className="menu-item">
-                  Play Next
-                </Menu.Item>
-                <Menu.Item className="menu-item">
-                  Play Last
-                </Menu.Item>
-                <Menu.Separator className="mx-4 my-1.5 h-px bg-background-thick" />
-                <Menu.Item className="menu-item">
-                  Favorite
-                </Menu.Item>
-                <Menu.Item className="menu-item">
-                  Share
-                </Menu.Item>
-              </Menu.Popup>
-            </Menu.Positioner>
-          </Menu.Portal>
-        </Menu.Root>
+        <Popover
+          className="popover mt-6"
+          mode="hover">
+          <Popover.Toggle variant="soft">من رو هوور کن</Popover.Toggle>
+
+          <Popover.Body className="popover-body right-0-bottom-out card card-thin card-menu max-w-[200%]">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+          </Popover.Body>
+        </Popover>
+
+        <Popover
+          className="popover mt-3"
+          mode="both">
+          <Popover.Toggle variant="soft">من رو هوور و کلیک کن</Popover.Toggle>
+
+          <Popover.Body className="popover-body right-0-bottom-out card card-thin card-menu max-w-[200%]">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+          </Popover.Body>
+        </Popover>
+        <Popover
+          className="popover mt-3"
+          mode="click">
+          <Popover.Toggle className="data-[state=false]:btn-soft data-[state=true]:btn-fill">
+            من رو باز کن
+          </Popover.Toggle>
+
+          <Popover.Body className="popover-body right-0-bottom-out card card-thin card-y card-menu">
+            <Button variant="ghost">پسندیدن</Button>
+            <Button variant="ghost">غیرفعال</Button>
+            <Button variant="ghost">دانلود</Button>
+            <Popover className="popover">
+              <Popover.Toggle variant="ghost">اشتراک گذاری</Popover.Toggle>
+              <Popover.Body className="popover-body top-center-left-out card card-y card-menu">
+                <Button variant="ghost">لینک</Button>
+                <Button variant="ghost">اینستاگرام</Button>
+                <Button variant="ghost">تلگرام</Button>
+                <Button variant="ghost">ایکس</Button>
+              </Popover.Body>
+            </Popover>
+          </Popover.Body>
+        </Popover>
       </div>
 
       <div className="p-3 mt-9">

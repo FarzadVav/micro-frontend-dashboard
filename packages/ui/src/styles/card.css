@@ -1,0 +1,49 @@
+@utility card {
+  --bg: transparent;
+  --card-space: calc(var(--spacing) * 3);
+  --card-radius: var(--radius-xl);
+
+  background-color: var(--bg);
+  padding: var(--card-space);
+  border-radius: var(--card-radius);
+}
+
+@utility card-sm {
+  --card-space: calc(var(--spacing) * 1.5);
+  --card-radius: var(--radius-lg);
+}
+
+@utility card-lg {
+  --card-space: calc(var(--spacing) * 6);
+  --card-radius: var(--radius-2xl);
+}
+
+@utility card-thin {
+  --bg: var(--color-background-thin);
+}
+
+@utility card-thick {
+  --bg: var(--color-background-thick);
+}
+
+@utility card-glassy {
+  --bg: color-mix(in oklab, var(--color-foreground) 10%, transparent);
+
+  @apply backdrop-blur-sm;
+}
+
+@utility card-menu {
+  @apply absolute z-10 w-max shadow-lg shadow-black/10;
+}
+
+@utility card-y {
+  @apply flex flex-col justify-between;
+
+  row-gap: calc(var(--card-space) / 2);
+}
+
+@utility card-x {
+  @apply f-align justify-between;
+
+  column-gap: calc(var(--card-space) / 2);
+}

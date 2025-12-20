@@ -5,7 +5,6 @@
 @import "./styles/badge.css";
 @import "./styles/tabs.css";
 @import "./styles/rating.css";
-@import "./styles/dialog.css";
 @import "./styles/menu.css";
 @import "./styles/tooltip.css";
 @import "./styles/separator.css";
@@ -14,6 +13,9 @@
 @import "./styles/pagination.css";
 @import "./styles/choice.css";
 @import "./styles/modal.css";
+@import "./styles/position.css";
+@import "./styles/popover.css";
+@import "./styles/card.css";
 
 @font-face {
   font-family: "ravi-medium";
