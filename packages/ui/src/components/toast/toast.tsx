@@ -1,11 +1,11 @@
 'use client';
 
 import { toast as sonnerToast, Toaster } from 'sonner';
+import { XCircleIcon, CheckCircleIcon, InfoIcon, XIcon, AlertCircleIcon } from 'lucide-react';
+
+import { cn } from '@repo/lib';
 import Button from '../button/button';
 import { ColorsT } from '../../types';
-import { cn } from '@repo/lib';
-import { ReactNode } from 'react';
-import { XCircleIcon, CheckCircleIcon, InfoIcon, XIcon, AlertCircleIcon } from 'lucide-react';
 
 type ToastProps = {
   id: string | number;
@@ -33,7 +33,6 @@ export function toast(toast: Omit<ToastProps, 'id'>) {
   ));
 }
 
-/** A fully custom toast that still maintains the animations and interactions. */
 function Toast(props: ToastProps) {
   const { title, description, color, status, button, id } = props;
 

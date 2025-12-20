@@ -1,7 +1,0 @@
-@utility switch {
-  @apply f-align h-6 w-10 rounded-full outline-2 outline-offset-2 outline-transparent focus-visible:outline-palette transition-all bg-background-thick data-checked:bg-palette relative;
-}
-
-@utility switch-thumb {
-  @apply aspect-square rounded-full bg-background data-checked:bg-brush absolute left-0.5 top-0.5 bottom-0.5 shadow-gray-100 transition-transform data-checked:translate-x-4;
-}

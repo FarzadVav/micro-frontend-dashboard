@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AlertDialog, Checkbox, Dialog, Menu, Radio, RadioGroup, Switch, Tabs, Tooltip } from "@repo/ui/base-ui"
+import { AlertDialog, Dialog, Menu, Tabs, Tooltip } from "@repo/ui/base-ui"
 import { CheckIcon, ChevronDownIcon, ChevronRightIcon, ChevronLeftIcon, PlusIcon, StarIcon, UserIcon, XIcon, CircleIcon } from "lucide-react"
 
 import { PaginationWithState } from "@repo/ui/src/components/pagination/pagination";
@@ -14,7 +14,7 @@ import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
 import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
 import TooltipArrowSvg from "@repo/ui/src/components/tooptip/tooltip";
-import { toast } from "@repo/ui/src/components";
+import { Choice, toast } from "@repo/ui/src/components";
 
 const PAGES_WITH_STATE = [
   {
@@ -70,6 +70,11 @@ const PAGES_WITH_STATE = [
 
 function Page() {
   const [rating, setRating] = useState(3);
+
+  const [filterChoice, setFilterChoice] = useState<string[]>([]);
+  const [singleChoice, setSingleChoice] = useState<string | null>("1");
+  const [multipleChoice, setMultipleChoice] = useState<string[]>(["1"]);
+  const [switchChoice, setSwitchChoice] = useState<string[]>(["1"]);
 
   return (
     <>
@@ -319,48 +324,111 @@ function Page() {
         </div>
       </div>
 
-      <div className="p-3 mt-9">
-        <p className="text-5xl font-ravi-bold">چک باکس:</p>
-        <label className={"f-align gap-3 mt-6"}>
-          <span>
-            فعالسازی نوتیفیکیشن ها
-          </span>
-          <Checkbox.Root defaultChecked aria-label="Enable notifications" className={"checkbox"}>
-            <Checkbox.Indicator className={"checkbox-indicator"}>
-              <CheckIcon />
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-        </label>
-      </div>
+      <div className="p-3 mt-9 palette-primary">
+        <p className="text-5xl font-ravi-bold">چویس ها (فیلتر، رادیو، چک باکس، سوییج):</p>
+        <p className="mt-6">فیلتر:</p>
+        <Choice
+          multiple
+          direction="x"
+          className="f-align gap-3 mt-3"
+          activeChoice={filterChoice}
+          setActiveChoice={setFilterChoice}>
+          <Choice.Trigger
+            className="btn data-[state=false]:btn-soft data-[state=true]:btn-fill"
+            choiceName="1">
+            فیلتر 1
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="btn data-[state=false]:btn-soft data-[state=true]:btn-fill"
+            choiceName="2">
+            فیلتر 2
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="btn data-[state=false]:btn-soft data-[state=true]:btn-fill"
+            choiceName="3">
+            فیلتر 3
+          </Choice.Trigger>
+        </Choice>
 
-      <div className="p-3 mt-9">
-        <p className="text-5xl font-ravi-bold">رادیو:</p>
-        <RadioGroup aria-labelledby={"radio"} defaultValue="system" className={"radio-group mt-6"}>
-          <p id={"radio"}>
-            تم وب سایت:
-          </p>
+        <p className="mt-6">رادیو:</p>
+        <Choice
+          requiredOne
+          direction="x"
+          className="f-align gap-3 mt-3"
+          activeChoice={singleChoice}
+          setActiveChoice={setSingleChoice}>
+          <Choice.Trigger
+            className="choice choice-sm choice-radio"
+            choiceName="1">
+            <span className="choice-radio-trigger" />
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="choice choice-radio"
+            choiceName="2">
+            <span className="choice-radio-trigger" />
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="choice choice-lg choice-radio"
+            choiceName="3">
+            <span className="choice-radio-trigger" />
+          </Choice.Trigger>
+        </Choice>
 
-          <label className={"radio-label"}>
-            <Radio.Root value="dark" className={"radio"}>
-              <Radio.Indicator className={"radio-indicator"} />
-            </Radio.Root>
-            دارک
-          </label>
+        <p className="mt-6">چک باکس:</p>
+        <Choice
+          multiple
+          direction="x"
+          className="f-align gap-3 mt-3"
+          activeChoice={multipleChoice}
+          setActiveChoice={setMultipleChoice}
+          requiredOne>
+          <Choice.Trigger
+            className="choice choice-sm choice-checkbox"
+            choiceName="1">
+            <span className="choice-checkbox-trigger">
+              <CheckIcon className="size-2/3" />
+            </span>
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="choice choice-checkbox"
+            choiceName="2">
+            <span className="choice-checkbox-trigger">
+              <CheckIcon className="size-2/3" />
+            </span>
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="choice choice-lg choice-checkbox"
+            choiceName="3">
+            <span className="choice-checkbox-trigger">
+              <CheckIcon className="size-2/3" />
+            </span>
+          </Choice.Trigger>
+        </Choice>
 
-          <label className={"radio-label"}>
-            <Radio.Root value="light" className={"radio"}>
-              <Radio.Indicator className={"radio-indicator"} />
-            </Radio.Root>
-            لایت
-          </label>
-
-          <label className={"radio-label"}>
-            <Radio.Root value="system" className={"radio"}>
-              <Radio.Indicator className={"radio-indicator"} />
-            </Radio.Root>
-            سیستم
-          </label>
-        </RadioGroup>
+        <p className="mt-6">سوییج:</p>
+        <Choice
+          multiple
+          direction="x"
+          className="f-align gap-3 mt-3"
+          activeChoice={switchChoice}
+          setActiveChoice={setSwitchChoice}
+          requiredOne>
+          <Choice.Trigger
+            className="choice choice-sm choice-switch"
+            choiceName="1">
+            <span className="choice-switch-trigger" />
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="choice choice-switch"
+            choiceName="2">
+            <span className="choice-switch-trigger" />
+          </Choice.Trigger>
+          <Choice.Trigger
+            className="choice choice-lg choice-switch"
+            choiceName="3">
+            <span className="choice-switch-trigger" />
+          </Choice.Trigger>
+        </Choice>
       </div>
 
       <div className="p-3 mt-9">
@@ -626,16 +694,6 @@ function Page() {
             </Tooltip.Root>
           </div>
         </Tooltip.Provider>
-      </div>
-
-      <div className="p-3 mt-9">
-        <p className="text-5xl font-ravi-bold">سوییچ:</p>
-
-        <Switch.Root
-          className="switch mt-6 palette-info"
-        >
-          <Switch.Thumb className="switch-thumb" />
-        </Switch.Root>
       </div>
 
       <div className="p-3 mt-9">

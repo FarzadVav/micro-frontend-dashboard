@@ -3,9 +3,6 @@
 @import "./styles/input.css";
 @import "./styles/otp.css";
 @import "./styles/badge.css";
-@import "./styles/checkbox.css";
-@import "./styles/switch.css";
-@import "./styles/radio.css";
 @import "./styles/tabs.css";
 @import "./styles/rating.css";
 @import "./styles/dialog.css";
@@ -15,6 +12,7 @@
 @import "./styles/avatar.css";
 @import "./styles/toast.css";
 @import "./styles/pagination.css";
+@import "./styles/choice.css";
 
 @font-face {
   font-family: "ravi-medium";

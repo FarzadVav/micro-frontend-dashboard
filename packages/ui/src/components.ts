@@ -11,3 +11,4 @@ export * from "./components/tooptip/tooltip";
 export * from "./components/upload/upload";
 export * from "./components/theme/theme";
 export * from "./components/toast/toast";
+export * from "./components/choice/choice";
