@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, Tabs, Tooltip } from "@repo/ui/base-ui"
-import { CheckIcon, ChevronDownIcon, ChevronRightIcon, ChevronLeftIcon, PlusIcon, StarIcon, UserIcon, XIcon, CircleIcon } from "lucide-react"
+import { CheckIcon, ChevronRightIcon, ChevronLeftIcon, PlusIcon, StarIcon, UserIcon, XIcon, CircleIcon } from "lucide-react"
 
 import { PaginationWithState } from "@repo/ui/src/components/pagination/pagination";
 import Badge from "@repo/ui/src/components/badge/badge";
@@ -11,9 +10,7 @@ import { Rating } from "@repo/ui/src/components/rating/rating";
 import { Input } from "@repo/ui/src/components/input/input";
 import { Otp } from "@repo/ui/src/components/otp/otp";
 import { Upload } from "@repo/ui/src/components/upload/upload";
-import MenuArrowSvg, { MENU_POSITIONER_SIDE_OFFSET } from "@repo/ui/src/components/menu/menuSetting";
-import TooltipArrowSvg from "@repo/ui/src/components/tooptip/tooltip";
-import { Button, Choice, Modal, Popover, toast } from "@repo/ui/src/components";
+import { Button, Choice, Modal, Popover, Tabs, toast } from "@repo/ui/src/components";
 
 const PAGES_WITH_STATE = [
   {
@@ -74,6 +71,8 @@ function Page() {
   const [singleChoice, setSingleChoice] = useState<string | null>("1");
   const [multipleChoice, setMultipleChoice] = useState<string[]>(["1"]);
   const [switchChoice, setSwitchChoice] = useState<string[]>(["1"]);
+
+  const [activeTab, setActiveTab] = useState("1");
 
   return (
     <>
@@ -440,37 +439,82 @@ function Page() {
 
       <div className="p-3 mt-9">
         <p className="text-5xl font-ravi-bold">تب:</p>
-        <Tabs.Root className={"max-w-5xl mt-6"} defaultValue="1">
-          <Tabs.List className={"tabs-list"}>
-            <Tabs.Tab className={"tabs-tab palette-success"} value="1">
+        <Tabs
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}>
+          <Tabs.List className="tabs-list palette-primary">
+            <Tabs.Tab
+              value="1"
+              className="tabs-tab">
               <span>
-                فروش
+                تب یک
               </span>
-              <span className="tabs-badge">20</span>
+              <Badge className="tabs-badge" size="sm" isRounded isSquare>
+                1
+              </Badge>
             </Tabs.Tab>
-            <Tabs.Tab className={"tabs-tab palette-error"} value="2">
+            <Tabs.Tab
+              value="2"
+              className="tabs-tab">
               <span>
-                سرور و امنیت
+                تب دو
               </span>
-              <span className="tabs-badge">20</span>
+              <Badge className="tabs-badge" size="sm" isRounded isSquare>
+                2
+              </Badge>
             </Tabs.Tab>
-            <Tabs.Tab className={"tabs-tab palette-warning"} value="3">
+            <Tabs.Tab
+              value="3"
+              className="tabs-tab">
               <span>
-                بایگانی
+                تب سه
               </span>
-              <span className="tabs-badge">20</span>
+              <Badge className="tabs-badge" size="sm" isRounded isSquare>
+                3
+              </Badge>
             </Tabs.Tab>
           </Tabs.List>
-          <Tabs.Panel className={"p-3"} value="1">
-            اول: لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+
+          <Tabs.Panel
+            className="tabs-panel"
+            key={"1"}
+            value="1">
+            Tab 1: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+            animi nisi, magni quis dolore cum molestias ipsam accusantium sunt repudiandae
+            repellendus perspiciatis cumque unde commodi reprehenderit distinctio nostrum
+            quisquam nihil?
           </Tabs.Panel>
-          <Tabs.Panel className={"p-3"} value="2">
-            دوم: لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+
+          <Tabs.Panel
+            className="tabs-panel"
+            key={"2"}
+            value="2">
+            Tab 2: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+            animi nisi, magni quis dolore cum molestias ipsam accusantium sunt repudiandae
+            quisquam nihil?
           </Tabs.Panel>
-          <Tabs.Panel className={"p-3"} value="3">
-            سوم: لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+
+          <Tabs.Panel
+            className="tabs-panel"
+            key={"3"}
+            value="3">
+            Tab 3: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+            animi nisi, magni quis dolore cum molestias ipsam accusantium sunt repudiandae
+            repellendus perspiciatis cumque unde commodi reprehenderit distinctio nostrum
+            quisquam nihil?
+            <br />
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat ut corporis
+            sequi expedita deserunt aliquid iste facere, nisi ipsa iure ad nostrum animi.
+            Adipisci placeat eos laborum error magnam officiis necessitatibus illo commodi
+            a, aperiam tempora alias voluptatum eveniet, atque quas dolores, facilis
+            architecto quisquam ipsum dolore officia debitis facere! Dicta iste consectetur,
+            illo amet obcaecati aut error, ipsam optio at earum odio laudantium
+            voluptatibus? Nemo, nisi debitis et, nam voluptas tempora ipsa ipsum culpa nobis
+            perferendis ipsam cumque blanditiis quos corrupti, rerum eos? Sapiente fugiat
+            voluptatibus laborum culpa at. Quidem, suscipit perferendis. Illum doloribus in
+            cumque fuga laboriosam dignissimos!
           </Tabs.Panel>
-        </Tabs.Root>
+        </Tabs>
       </div>
 
       <div className="p-3 mt-9">

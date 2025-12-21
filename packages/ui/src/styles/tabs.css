@@ -3,15 +3,15 @@
 }
 
 @utility tabs-tab {
-  @apply btn btn-rounded data-active:shadow-foreground/10 shadow-xl shadow-transparent;
-  
-  &[data-active] .tabs-badge {
-    @apply shadow-palette/20;
-  }
-}
+  @apply btn-rounded data-[state=true]:shadow-foreground/10 shadow-xl shadow-transparent;
 
-@utility tabs-badge {
-  @apply badge badge-soft badge-sm badge-rounded shadow-md shadow-transparent;
+  &[data-state="true"] .tabs-badge {
+    @apply badge-fill shadow-palette/20;
+  }
+
+  &[data-state="false"] .tabs-badge {
+    @apply badge-soft;
+  }
 }
 
 @utility tabs-panel {

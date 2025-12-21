@@ -14,3 +14,4 @@ export * from "./components/toast/toast";
 export * from "./components/choice/choice";
 export * from "./components/modal/modal";
 export * from "./components/popover/popover";
+export * from "./components/tabs/tabs";

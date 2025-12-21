@@ -2,8 +2,7 @@
   "name": "@repo/ui",
   "exports": {
     "./styles": "./src/styles.css",
-    "./components": "./src/components.ts",
-    "./base-ui": "./src/base-ui.ts"
+    "./components": "./src/components.ts"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -17,7 +16,6 @@
   },
   "dependencies": {
     "lucide-react": "^0.469.0",
-    "@base-ui-components/react": "^1.0.0-rc.0",
     "next": "16.0.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
