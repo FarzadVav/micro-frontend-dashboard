@@ -1,8 +1,8 @@
 @utility tabs-list {
-  @apply f-align gap-3;
+  @apply w-fix f-align gap-3;
 }
 
-@utility tabs-tab {
+@utility tabs-tab-styled-1 {
   @apply btn-rounded data-[state=true]:shadow-foreground/10 shadow-xl shadow-transparent;
 
   &[data-state="true"] .tabs-badge {
@@ -16,4 +16,12 @@
 
 @utility tabs-panel {
   @apply p-3;
+}
+
+@utility tabs-list-styled-2 {
+  @apply bg-background-thick p-1.5 rounded-full;
+}
+
+@utility tabs-tab-styled-2 {
+  @apply btn-rounded data-[state=true]:bg-background;
 }

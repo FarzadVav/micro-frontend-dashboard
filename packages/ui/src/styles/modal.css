@@ -11,17 +11,17 @@
 }
 
 @utility modal-body {
-  @apply w-fix h-fix f-center flex-col;
+  @apply w-fix h-fix f-center flex-col relative;
 }
 
 @utility modal-header {
-  @apply w-full h-20 f-align px-6 bg-background rounded-t-2xl border-b border-background-thick sticky top-0;
+  @apply w-full h-20 f-align px-6 bg-background/80 backdrop-blur-3xl rounded-t-2xl border-b border-background-thick sticky top-0 z-10;
 }
 
 @utility modal-footer {
-  @apply w-full h-20 f-align justify-end px-6 bg-background rounded-b-2xl border-t border-background-thick sticky bottom-0;
+  @apply w-full h-20 f-align justify-end px-6 bg-background/80 backdrop-blur-3xl rounded-b-2xl border-t border-background-thick sticky bottom-0 z-10;
 }
 
 @utility modal-content {
-  @apply w-full p-6 bg-background max-h-[calc(100%-10rem)] f-align justify-end gap-3 overflow-y-auto;
+  @apply w-full p-6 bg-background/80 backdrop-blur-2xl max-h-[calc(100%-10rem)] f-align justify-end gap-3 overflow-y-auto z-10;
 }

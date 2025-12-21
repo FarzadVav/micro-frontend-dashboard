@@ -442,10 +442,10 @@ function Page() {
         <Tabs
           activeTab={activeTab}
           setActiveTab={setActiveTab}>
-          <Tabs.List className="tabs-list palette-primary">
+          <Tabs.List className="tabs-list tabs-list-styled-1 palette-primary mt-6">
             <Tabs.Tab
               value="1"
-              className="tabs-tab">
+              className="tabs-tab-styled-1">
               <span>
                 تب یک
               </span>
@@ -455,7 +455,7 @@ function Page() {
             </Tabs.Tab>
             <Tabs.Tab
               value="2"
-              className="tabs-tab">
+              className="tabs-tab-styled-1">
               <span>
                 تب دو
               </span>
@@ -465,13 +465,81 @@ function Page() {
             </Tabs.Tab>
             <Tabs.Tab
               value="3"
-              className="tabs-tab">
+              className="tabs-tab-styled-1">
               <span>
                 تب سه
               </span>
               <Badge className="tabs-badge" size="sm" isRounded isSquare>
                 3
               </Badge>
+            </Tabs.Tab>
+          </Tabs.List>
+
+          <Tabs.Panel
+            className="tabs-panel"
+            key={"1"}
+            value="1">
+            Tab 1: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+            animi nisi, magni quis dolore cum molestias ipsam accusantium sunt repudiandae
+            repellendus perspiciatis cumque unde commodi reprehenderit distinctio nostrum
+            quisquam nihil?
+          </Tabs.Panel>
+
+          <Tabs.Panel
+            className="tabs-panel"
+            key={"2"}
+            value="2">
+            Tab 2: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+            animi nisi, magni quis dolore cum molestias ipsam accusantium sunt repudiandae
+            quisquam nihil?
+          </Tabs.Panel>
+
+          <Tabs.Panel
+            className="tabs-panel"
+            key={"3"}
+            value="3">
+            Tab 3: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+            animi nisi, magni quis dolore cum molestias ipsam accusantium sunt repudiandae
+            repellendus perspiciatis cumque unde commodi reprehenderit distinctio nostrum
+            quisquam nihil?
+            <br />
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat ut corporis
+            sequi expedita deserunt aliquid iste facere, nisi ipsa iure ad nostrum animi.
+            Adipisci placeat eos laborum error magnam officiis necessitatibus illo commodi
+            a, aperiam tempora alias voluptatum eveniet, atque quas dolores, facilis
+            architecto quisquam ipsum dolore officia debitis facere! Dicta iste consectetur,
+            illo amet obcaecati aut error, ipsam optio at earum odio laudantium
+            voluptatibus? Nemo, nisi debitis et, nam voluptas tempora ipsa ipsum culpa nobis
+            perferendis ipsam cumque blanditiis quos corrupti, rerum eos? Sapiente fugiat
+            voluptatibus laborum culpa at. Quidem, suscipit perferendis. Illum doloribus in
+            cumque fuga laboriosam dignissimos!
+          </Tabs.Panel>
+        </Tabs>
+
+        <Tabs
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}>
+          <Tabs.List className="tabs-list tabs-list-styled-2 mt-6">
+            <Tabs.Tab
+              value="1"
+              className="tabs-tab-styled-2">
+              <span>
+                تب یک
+              </span>
+            </Tabs.Tab>
+            <Tabs.Tab
+              value="2"
+              className="tabs-tab-styled-2">
+              <span>
+                تب دو
+              </span>
+            </Tabs.Tab>
+            <Tabs.Tab
+              value="3"
+              className="tabs-tab-styled-2">
+              <span>
+                تب سه
+              </span>
             </Tabs.Tab>
           </Tabs.List>
 
@@ -538,6 +606,9 @@ function Page() {
 
           <Modal.Portal className="modal-portal">
             <Modal.Body className="modal-body">
+              <div className="size-32 rounded-full bg-blue-500 absolute left-0-top-0"></div>
+              <div className="size-32 rounded-full bg-blue-500 absolute right-0-bottom-0"></div>
+
               <Modal.Header className="modal-header font-bold justify-center">
                 به مدال خوش آمدید
               </Modal.Header>
