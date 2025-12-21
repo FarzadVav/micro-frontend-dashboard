@@ -1,5 +1,3 @@
 @utility popover {
-  --out-position-offset: calc(var(--spacing) * -1.5);
-
   @apply relative w-fix;
 }

@@ -1,5 +1,21 @@
 /* Element should be `absolute` or `fixed` */
 
+@utility out-position-offset-none {
+  --out-position-offset: 0;
+}
+
+@utility out-position-offset-sm {
+  --out-position-offset: calc(var(--spacing) * -0.5);
+}
+
+@utility out-position-offset {
+  --out-position-offset: calc(var(--spacing) * -1.5);
+}
+
+@utility out-position-offset-lg {
+  --out-position-offset: calc(var(--spacing) * -3);
+}
+
 @utility top-center {
   @apply top-1/2 -translate-y-1/2;
 }

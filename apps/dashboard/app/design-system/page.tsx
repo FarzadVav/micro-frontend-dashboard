@@ -611,63 +611,18 @@ function Page() {
       <div className="p-3 mt-9">
         <p className="text-5xl font-ravi-bold">تولتیپ:</p>
 
-        <Tooltip.Provider>
-          <div className="f-align gap-3 mt-6">
-            <Tooltip.Root>
-              <Tooltip.Trigger className="btn btn-soft btn-square palette-primary">
-                B
-              </Tooltip.Trigger>
-              <Tooltip.Portal>
-                <Tooltip.Positioner sideOffset={10}>
-                  <Tooltip.Popup className="tooltip-popup palette-primary">
-                    <Tooltip.Arrow
-                      className="tooltip-arrow"
-                    >
-                      <TooltipArrowSvg />
-                    </Tooltip.Arrow>
-                    Bold
-                  </Tooltip.Popup>
-                </Tooltip.Positioner>
-              </Tooltip.Portal>
-            </Tooltip.Root>
+        <Popover
+          className="popover mt-6"
+          mode="hover">
+          <Popover.Toggle variant="soft">B</Popover.Toggle>
 
-            <Tooltip.Root>
-              <Tooltip.Trigger className="btn btn-soft btn-square palette-primary">
-                I
-              </Tooltip.Trigger>
-              <Tooltip.Portal>
-                <Tooltip.Positioner sideOffset={10}>
-                  <Tooltip.Popup className="tooltip-popup palette-primary">
-                    <Tooltip.Arrow
-                      className="tooltip-arrow"
-                    >
-                      <TooltipArrowSvg />
-                    </Tooltip.Arrow>
-                    Italic
-                  </Tooltip.Popup>
-                </Tooltip.Positioner>
-              </Tooltip.Portal>
-            </Tooltip.Root>
-
-            <Tooltip.Root>
-              <Tooltip.Trigger className="btn btn-soft btn-square palette-primary">
-                U
-              </Tooltip.Trigger>
-              <Tooltip.Portal>
-                <Tooltip.Positioner sideOffset={10}>
-                  <Tooltip.Popup className="tooltip-popup palette-primary">
-                    <Tooltip.Arrow
-                      className="tooltip-arrow"
-                    >
-                      <TooltipArrowSvg />
-                    </Tooltip.Arrow>
-                    Underline
-                  </Tooltip.Popup>
-                </Tooltip.Positioner>
-              </Tooltip.Portal>
-            </Tooltip.Root>
-          </div>
-        </Tooltip.Provider>
+          <Popover.Body className="popover-body top-out-left-center out-position-offset card card-sm card-thin card-menu max-w-[200%]">
+            <span>
+              Bold
+            </span>
+            <Popover.Arrow className="bottom-out-left-center out-position-offset-none" fillColor="background-thin" />
+          </Popover.Body>
+        </Popover>
       </div>
 
       <div className="p-3 mt-9">
