@@ -14,6 +14,7 @@ export function TabsTab({ value, onClick, ...p }: TabsTabPropsT) {
 
   return (
     <Button
+      type="button"
       data-state={value === activeTab}
       onClick={(ev) => {
         onClick?.(ev);

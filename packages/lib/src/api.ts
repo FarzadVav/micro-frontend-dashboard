@@ -1,12 +1,11 @@
+const API_URL = "https://api.metadatads.com/api";
+
 export async function safeFetch<T>(endPoint: string, init: RequestInit) {
   let response: Response | null = null
   let result: T | null = null
 
   try {
-    response = await fetch(
-      process.env.NEXT_PUBLIC_API_URL + endPoint,
-      init
-    );
+    response = await fetch(API_URL + endPoint, init);
 
     result = await response.json();
   } catch (error) {

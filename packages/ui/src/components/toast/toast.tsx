@@ -9,7 +9,7 @@ import { ColorsT } from '../../types';
 
 type ToastProps = {
   id: string | number;
-  title: string;
+  title?: string;
   description?: string;
   color: ColorsT;
   status: "info" | "success" | "error" | "warning";
@@ -58,7 +58,7 @@ function Toast(props: ToastProps) {
         {status === "warning" && <AlertCircleIcon className="size-5" />}
 
         <div className="flex-1">
-          <p className="font-ravi-bold">{title}</p>
+          {title && <p className="font-ravi-bold">{title}</p>}
           {description && <p className="mt-1 text-sm">{description}</p>}
         </div>
       </div>
