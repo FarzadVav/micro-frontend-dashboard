@@ -57,9 +57,9 @@ function Toast(props: ToastProps) {
         {status === "error" && <XCircleIcon className="size-5" />}
         {status === "warning" && <AlertCircleIcon className="size-5" />}
 
-        <div className="flex-1">
+        <div className="flex-1 flex items-start flex-col gap-1">
           {title && <p className="font-ravi-bold">{title}</p>}
-          {description && <p className="mt-1 text-sm">{description}</p>}
+          {description && <p className="text-sm">{description}</p>}
         </div>
       </div>
       <Button

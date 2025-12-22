@@ -1,13 +1,17 @@
 "use client";
 
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Input, Tabs } from "@repo/ui/src/components";
+import { useRouter } from "next/navigation";
 import { ArrowLeftIcon } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Button, Input, Tabs, toast } from "@repo/ui/src/components";
 import { LoginSchemaT, loginSchema, postLogin } from "@repo/lib";
 
 function LoginForm() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<"email" | "phone_number">("email");
 
   const {
@@ -19,14 +23,28 @@ function LoginForm() {
     defaultValues: {
       email: "",
       password: "",
-      tenant: "root",
+      tenant: "shetab",
     },
   });
 
   const onSubmit = async (values: LoginSchemaT) => {
     const { tenant, email, password } = values;
     const res = await postLogin({ tenant, email, password });
-    console.log(res);
+    if (res.status === 200 && res.result) {
+      toast({
+        color: "success",
+        status: "success",
+        description: "ورود با موفقیت انجام شد",
+      })
+      Cookies.set("token", res.result.data.token, { expires: 30, path: "/" });
+      router.push("/panel");
+    } else {
+      toast({
+        color: "error",
+        status: "error",
+        description: "ورود با مشکل مواجه شد",
+      })
+    }
   };
 
   return (
@@ -57,7 +75,7 @@ function LoginForm() {
           </Tabs.List>
 
           <Tabs.Panel className="mt-6" value="email">
-            <label className="text-sm mt-6" htmlFor="email">
+            <label className="text-sm" htmlFor="email">
               ایمیل <span className="text-error">*</span>
             </label>
             <Input className="mt-1" htmlFor="email" variant="outline" color="primary" isRounded>
@@ -69,7 +87,7 @@ function LoginForm() {
               />
             </Input>
             {errors.email && (
-              <p className="text-error text-xs mt-1">{errors.email.message}</p>
+              <p className="text-error text-xs mt-1.5">{errors.email.message}</p>
             )}
 
             <label className="text-sm mt-6" htmlFor="password">
@@ -90,7 +108,7 @@ function LoginForm() {
               />
             </Input>
             {errors.password && (
-              <p className="text-error text-xs mt-1">{errors.password.message}</p>
+              <p className="text-error text-xs mt-1.5">{errors.password.message}</p>
             )}
           </Tabs.Panel>
         </Tabs>

@@ -7,6 +7,7 @@
   "dependencies": {
     "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@repo/lib": "workspace:*",
     "react": "^19.2.0"
   },
   "devDependencies": {

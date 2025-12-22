@@ -1,15 +1,20 @@
-import { getAvailableModules, ModuleRoles } from "@repo/config/src"
-import Button from "@repo/ui/src/components/button/button"
-import { BellIcon, ChevronDownIcon, LayoutGridIcon, NotebookPenIcon, SearchIcon, SettingsIcon } from "lucide-react"
+"use client";
+
 import Link from "next/link"
+import { Button } from "@repo/ui/src/components"
+import { getAvailableModules, ModuleRoles } from "@repo/config/src"
+import { BellIcon, ChevronDownIcon, LayoutGridIcon, NotebookPenIcon, SearchIcon, SettingsIcon } from "lucide-react"
+import { useUser } from "@repo/lib/src";
 
 function Header() {
+  const { user } = useUser();
+
   return (
     <header className="wrapper h-20 f-align gap-3">
       <Button variant="float" color="background-thin" size="lg" className={"ps-1.5"} isRounded>
         <span className="size-[calc(var(--btn-h)-0.75rem)] shadow-lg shadow-brush/10 rounded-full bg-primary" />
         <span>
-          فودکس
+          فودکس - {user?.result?.firstName}
         </span>
       </Button>
 

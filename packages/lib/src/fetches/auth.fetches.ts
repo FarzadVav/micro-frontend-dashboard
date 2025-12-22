@@ -1,3 +1,4 @@
+import { UserT } from "../types";
 import { commonHeaders, safeFetch } from "../api";
 
 type PostLoginParamsT = {
@@ -20,3 +21,12 @@ export const postLogin = ({ tenant, ...params }: PostLoginParamsT) =>
       ...commonHeaders.jsonApplicationType,
     }
   })
+
+
+type GetMeParamsT = {
+  token: string;
+};
+export const getMe = (params: GetMeParamsT) =>
+  safeFetch<UserT>("/v1/personal/profile", {
+    headers: commonHeaders.bearerToken(params.token),
+  });
