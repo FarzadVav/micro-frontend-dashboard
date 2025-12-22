@@ -706,7 +706,7 @@ function Page() {
             من رو باز کن
           </Popover.Toggle>
 
-          <Popover.Body className="popover-body right-0-bottom-out card card-thin card-y card-menu">
+          <Popover.Body className="popover-body right-0-bottom-out card card-glassy card-y card-menu">
             <Button variant="ghost">پسندیدن</Button>
             <Button variant="ghost">غیرفعال</Button>
             <Button variant="ghost">دانلود</Button>

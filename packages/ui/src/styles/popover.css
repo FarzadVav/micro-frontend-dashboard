@@ -1,3 +1,7 @@
 @utility popover {
   @apply relative w-fix;
 }
+
+@utility popover-body {
+  @apply z-10;
+}

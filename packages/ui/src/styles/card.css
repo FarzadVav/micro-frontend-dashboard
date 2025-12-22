@@ -27,7 +27,7 @@
 }
 
 @utility card-glassy {
-  --bg: color-mix(in oklab, var(--color-foreground) 10%, transparent);
+  --bg: color-mix(in oklab, var(--color-background) 90%, transparent);
 
   @apply backdrop-blur-sm;
 }
