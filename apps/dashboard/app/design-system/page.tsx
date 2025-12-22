@@ -542,7 +542,7 @@ function Page() {
               </span>
             </Tabs.Tab>
           </Tabs.List>
-
+<
           <Tabs.Panel
             className="tabs-panel"
             key={"1"}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link"
-import { Button } from "@repo/ui/src/components"
+import { Button, Modal } from "@repo/ui/src/components"
 import { getAvailableModules, ModuleRoles } from "@repo/config/src"
 import { BellIcon, ChevronDownIcon, LayoutGridIcon, NotebookPenIcon, SearchIcon, SettingsIcon } from "lucide-react"
 import { useUser } from "@repo/lib/src";
@@ -18,21 +18,27 @@ function Header() {
         </span>
       </Button>
 
-      <Button variant="float" color="background-thin" size="lg" isSquare isRounded>
-        <span className="size-[calc(var(--btn-h)-0.75rem)] bg-brush text-palette rounded-full p-2">
-          <LayoutGridIcon className="size-full" />
-        </span>
-      </Button>
-
-      <div className="f-align gap-3 mr-auto">
-        {getAvailableModules(ModuleRoles.ADMIN).map((mod) => (
-          <Link key={mod.id} href={"/panel" + mod.route}>
-            <Button variant="float" color="background-thin" size="lg" isSquare isRounded>
-              <mod.icon className="btn-icon-size" />
-            </Button>
-          </Link>
-        ))}
-      </div>
+      <Modal>
+        <Modal.Toggle variant="float" color="background-thin" size="lg" isSquare isRounded>
+          <span className="size-[calc(var(--btn-h)-0.75rem)] bg-brush text-palette rounded-full p-2">
+            <LayoutGridIcon className="size-full" />
+          </span>
+        </Modal.Toggle>
+        <Modal.Portal className="modal-portal items-start">
+          <Modal.Body className="modal-body w-full">
+            <Modal.Content className="modal-content grid grid-cols-4 gap-6">
+              {getAvailableModules(ModuleRoles.ADMIN).map((mod) => (
+                <Link key={mod.id} href={"/panel" + mod.route}>
+                  <Button variant="ghost" size="lg" isRounded>
+                    <mod.icon className="btn-icon-size" />
+                    {mod.label}
+                  </Button>
+                </Link>
+              ))}
+            </Modal.Content>
+          </Modal.Body>
+        </Modal.Portal>
+      </Modal>
 
       <div className="f-align gap-3 mr-auto">
         <Button variant="float" color="background-thin" size="lg" isSquare isRounded>

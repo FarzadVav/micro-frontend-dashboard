@@ -1,5 +1,5 @@
 @utility modal-portal {
-  @apply fixed inset-0 z-50 f-center p-6 bg-black/50;
+  @apply fixed inset-0 z-50 f-center p-6 bg-black/50 backdrop-blur-sm;
 
   &:not(:has(.modal-header)) .modal-content {
     @apply rounded-t-2xl;
@@ -23,5 +23,5 @@
 }
 
 @utility modal-content {
-  @apply w-full p-6 bg-background/80 backdrop-blur-2xl max-h-[calc(100%-10rem)] f-align justify-end gap-3 overflow-y-auto z-10;
+  @apply w-full p-6 bg-background/80 backdrop-blur-2xl max-h-[calc(100%-10rem)] gap-3 overflow-y-auto z-10;
 }

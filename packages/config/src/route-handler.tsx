@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { checkModuleAccess, getModuleByRoute, ModuleRoles } from "./modules";
-
-// import { getModuleByRoute, hasAccessToModule } from "./module-loader";
 
 interface PageProps {
   params: Promise<{
@@ -34,17 +32,12 @@ export async function handleModuleRoute({ params }: PageProps) {
 
   const route = slug ? `/${slug.join("/")}` : "/";
 
-  const hasAuth = true;
-
-  if (!hasAuth) {
-    redirect("/login");
-  }
-  
   const module = getModuleByRoute(route);
   if (!module) {
     notFound();
   }
-  
+
+  // TODO: get user role from API
   const role = ModuleRoles.ADMIN;
   const moduleIsAvailable = checkModuleAccess(module, role);
   if (!moduleIsAvailable) {
